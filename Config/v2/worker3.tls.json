@@ -34,7 +34,7 @@
         "tag": "remote-dns"
       },
       {
-        "address": "https://dns.cloudflare.com/dns-query",
+        "address": "https://dns.google/dns-query",
         "tag": "frag-dns"
       },
       "https+local://dns.digitalsize.net/dns-query"
@@ -317,7 +317,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "www.speedtest.net",
+            "address": "tgju.org",
             "port": 8443,
             "users": [
               {
@@ -370,7 +370,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "www.speedtest.net",
+            "address": "tgju.org",
             "port": 8443,
             "users": [
               {
@@ -476,7 +476,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "www.speedtest.net",
+            "address": "tgju.org",
             "port": 8443,
             "users": [
               {
@@ -529,7 +529,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "tgju.org",
+            "address": "www.speedtest.net",
             "port": 8443,
             "users": [
               {
@@ -582,7 +582,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "www.speedtest.net",
+            "address": "tgju.org",
             "port": 8443,
             "users": [
               {
@@ -635,7 +635,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.26.15.85",
+            "address": "104.17.88.212",
             "port": 8443,
             "users": [
               {
@@ -688,7 +688,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "188.114.98.0",
+            "address": "162.159.133.234",
             "port": 8443,
             "users": [
               {
@@ -741,7 +741,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.21.63.78",
+            "address": "104.17.147.22",
             "port": 8443,
             "users": [
               {
@@ -794,7 +794,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.19.250.20",
+            "address": "172.67.135.149",
             "port": 8443,
             "users": [
               {
@@ -847,7 +847,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.21.63.78",
+            "address": "104.17.42.10",
             "port": 8443,
             "users": [
               {
@@ -900,7 +900,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.18.10.128",
+            "address": "104.20.9.79",
             "port": 8443,
             "users": [
               {
@@ -953,7 +953,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "172.67.135.149",
+            "address": "104.20.9.79",
             "port": 8443,
             "users": [
               {
@@ -1006,7 +1006,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.26.15.85",
+            "address": "104.19.250.20",
             "port": 8443,
             "users": [
               {
@@ -1059,7 +1059,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.17.147.22",
+            "address": "104.17.42.10",
             "port": 8443,
             "users": [
               {
@@ -1112,7 +1112,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "104.19.250.20",
+            "address": "172.67.73.174",
             "port": 8443,
             "users": [
               {
@@ -1261,6 +1261,6 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#1 WORKER3.TLS 2025-07-01"
+  "remarks": "#1 WORKER3.TLS 2025-07-02"
 }
 ]
