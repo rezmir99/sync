@@ -19,34 +19,85 @@
   "dns": {
     "servers": [
       {
-        "address": "local",
-        "detour": "direct",
+        "type": "local",
         "tag": "dns-local"
       },
       {
-        "address": "8.8.8.8",
-        "detour": "direct",
+        "type": "udp",
+        "server": "8.8.8.8",
         "tag": "dns-plain"
       },
       {
-        "address": "tls://8.8.8.8",
+        "type": "tls",
+        "server": "8.8.8.8",
+        "tag": "dns-remote",
         "detour": "proxy",
-        "tag": "dns-remote"
+        "tls": {
+          "enabled": true
+        }
       },
       {
-        "address": "https://dns.digitalsize.net/dns-query",
-        "address_resolver": "dns-plain",
-        "detour": "direct",
-        "tag": "dns-direct"
+        "type": "https",
+        "server": "dns.cloudflare.com",
+        "domain_resolver": "hosts",
+        "tag": "dns-frag",
+        "tls": {
+          "enabled": true,
+          "record_fragment": true,
+          "utls": {
+            "enabled": true,
+            "fingerprint": "randomized"
+          }
+        }
       },
       {
-        "address": "https://free.shecan.ir/dns-query",
-        "address_resolver": "dns-plain",
-        "detour": "direct",
-        "tag": "dns-shecan"
+        "type": "https",
+        "server": "dns.digitalsize.net",
+        "domain_resolver": "dns-plain",
+        "tag": "dns-direct",
+        "tls": {
+          "enabled": true
+        }
+      },
+      {
+        "type": "https",
+        "server": "free.shecan.ir",
+        "domain_resolver": "dns-plain",
+        "tag": "dns-shecan",
+        "tls": {
+          "enabled": true
+        }
+      },
+      {
+        "type": "hosts",
+        "tag": "hosts",
+        "predefined": {
+          "dns.cloudflare.com": [
+            "104.16.219.230",
+            "104.16.250.250",
+            "104.17.147.22",
+            "104.17.42.10",
+            "104.17.88.212",
+            "104.18.10.128",
+            "104.19.250.20",
+            "104.20.9.79",
+            "104.21.63.78",
+            "104.26.15.85",
+            "162.159.130.234",
+            "162.159.133.234",
+            "172.67.135.149",
+            "172.67.170.72",
+            "172.67.73.174",
+            "188.114.98.0"
+          ]
+        }
       }
     ],
     "rules": [
+      {
+        "ip_accept_any": true,
+        "server": "hosts"
+      },
       {
         "domain": [
           "tgju.org",
@@ -62,12 +113,8 @@
         "server": "dns-local"
       },
       {
-        "outbound": "any",
-        "server": "dns-direct"
-      },
-      {
         "clash_mode": "direct",
-        "server": "dns-direct"
+        "server": "dns-plain"
       },
       {
         "clash_mode": "tahrim",
@@ -361,57 +408,7 @@
         "247.🔒 (130)",
         "248.🔒 (140)",
         "249.🔒 (198)",
-        "250.🔒 (210)",
-        "251.🔒 (217)",
-        "252.🔒 (274)",
-        "253.🔒 (282)",
-        "254.🔒 (292)",
-        "255.🔒 (294)",
-        "256.🔒 (338)",
-        "257.🔒 (352)",
-        "258.🔒 (369)",
-        "259.🔒 (374)",
-        "260.🔒 (389)",
-        "261.🔒 (425)",
-        "262.🔒 (439)",
-        "263.🔒 (452)",
-        "264.🔒 (491)",
-        "265.🔒 (516)",
-        "266.🔒 (520)",
-        "267.🔒 (532)",
-        "268.🔒 (533)",
-        "269.🔒 (536)",
-        "270.🔒 (577)",
-        "271.🔒 (623)",
-        "272.🔒 (624)",
-        "273.🔒 (634)",
-        "274.🔒 (668)",
-        "275.🔒 (696)",
-        "276.🔒 (738)",
-        "277.🔒 (767)",
-        "278.🔒 (814)",
-        "279.🔒 (817)",
-        "280.🔒 (819)",
-        "281.🔒 (864)",
-        "282.🔒 (872)",
-        "283.🔒 (876)",
-        "284.🔒 (907)",
-        "285.🔒 (912)",
-        "286.🔒 (925)",
-        "287.🔒 (966)",
-        "288.🔒 (967)",
-        "289.🔒 (973)",
-        "290.🔒 (999)",
-        "291.🔒 (1032)",
-        "292.🔒 (1033)",
-        "293.🔒 (1040)",
-        "294.🔒 (1042)",
-        "295.🔒 (1051)",
-        "296.🔒 VM-TCP-NA 🇺🇸 US-107.148.207.249:48712",
-        "297.🔒 VM-TCP-NA 🇨🇦 CA-108.181.200.220:17163",
-        "298.🔒 (1213)",
-        "299.🔒 (1216)",
-        "300.🔒 (1269)"
+        "250.🔒 (210)"
       ]
     },
     {
@@ -667,57 +664,7 @@
         "247.🔒 (130)",
         "248.🔒 (140)",
         "249.🔒 (198)",
-        "250.🔒 (210)",
-        "251.🔒 (217)",
-        "252.🔒 (274)",
-        "253.🔒 (282)",
-        "254.🔒 (292)",
-        "255.🔒 (294)",
-        "256.🔒 (338)",
-        "257.🔒 (352)",
-        "258.🔒 (369)",
-        "259.🔒 (374)",
-        "260.🔒 (389)",
-        "261.🔒 (425)",
-        "262.🔒 (439)",
-        "263.🔒 (452)",
-        "264.🔒 (491)",
-        "265.🔒 (516)",
-        "266.🔒 (520)",
-        "267.🔒 (532)",
-        "268.🔒 (533)",
-        "269.🔒 (536)",
-        "270.🔒 (577)",
-        "271.🔒 (623)",
-        "272.🔒 (624)",
-        "273.🔒 (634)",
-        "274.🔒 (668)",
-        "275.🔒 (696)",
-        "276.🔒 (738)",
-        "277.🔒 (767)",
-        "278.🔒 (814)",
-        "279.🔒 (817)",
-        "280.🔒 (819)",
-        "281.🔒 (864)",
-        "282.🔒 (872)",
-        "283.🔒 (876)",
-        "284.🔒 (907)",
-        "285.🔒 (912)",
-        "286.🔒 (925)",
-        "287.🔒 (966)",
-        "288.🔒 (967)",
-        "289.🔒 (973)",
-        "290.🔒 (999)",
-        "291.🔒 (1032)",
-        "292.🔒 (1033)",
-        "293.🔒 (1040)",
-        "294.🔒 (1042)",
-        "295.🔒 (1051)",
-        "296.🔒 VM-TCP-NA 🇺🇸 US-107.148.207.249:48712",
-        "297.🔒 VM-TCP-NA 🇨🇦 CA-108.181.200.220:17163",
-        "298.🔒 (1213)",
-        "299.🔒 (1216)",
-        "300.🔒 (1269)"
+        "250.🔒 (210)"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "20m",
@@ -738,6 +685,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -750,7 +698,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -767,6 +716,7 @@
       "server": "13.114.65.253",
       "server_port": 443,
       "password": "AACY9aXaD0ZDyuyOBzD3Onl2ICw6anBE8l3SRl38RCSDpw7FpYzcRj7NeaFSpR5qx85Su",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -779,7 +729,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -788,6 +739,7 @@
       "server": "18.141.191.2",
       "server_port": 18332,
       "password": "8A5SgnpNyaCaORwOqgOSFZYDBAF4ENzSKKDX3eC5D63FlXCyY3a7zpDB9Iax3ZneR0Ywe",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -800,7 +752,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -809,6 +762,7 @@
       "server": "13.213.45.77",
       "server_port": 18332,
       "password": "6303ux8zpDA9c9OTqCFNFeCCDalxaFZAE36p3RYSaORYDSKTRZIy3nDjZD2R5wS48Yxc8",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -821,7 +775,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -830,6 +785,7 @@
       "server": "automq4-proxy.automq-sg.com",
       "server_port": 443,
       "password": "dQUWbcwECl",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -842,7 +798,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -851,6 +808,7 @@
       "server": "20.191.138.47",
       "server_port": 443,
       "password": "dQUWbcwECl",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -863,7 +821,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -872,6 +831,7 @@
       "server": "104.26.5.57",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -887,7 +847,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -904,6 +865,7 @@
       "server": "104.26.7.214",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -919,7 +881,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -936,6 +899,7 @@
       "server": "172.67.182.83",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -951,7 +915,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -968,6 +933,7 @@
       "server": "104.26.4.57",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -983,7 +949,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1000,6 +967,7 @@
       "server": "172.65.90.52",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1015,7 +983,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1032,6 +1001,7 @@
       "server": "104.16.143.237",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1044,7 +1014,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1061,6 +1032,7 @@
       "server": "104.21.86.140",
       "server_port": 443,
       "password": "9e7caa3b-ca9c-40ba-9ea0-f0c992359239",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1073,7 +1045,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1090,6 +1063,7 @@
       "server": "104.21.28.26",
       "server_port": 443,
       "password": "21e5535e-4783-4a80-a735-24a1162d315c",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1105,7 +1079,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1122,6 +1097,7 @@
       "server": "104.21.82.39",
       "server_port": 443,
       "password": "fefba36d-5142-42f1-b14d-db5249511d93",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1134,7 +1110,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1151,6 +1128,7 @@
       "server": "172.64.145.239",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1166,7 +1144,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1183,6 +1162,7 @@
       "server": "104.21.23.72",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1198,7 +1178,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1215,6 +1196,7 @@
       "server": "104.16.239.254",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1227,7 +1209,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1244,6 +1227,7 @@
       "server": "172.67.75.194",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1259,7 +1243,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1276,6 +1261,7 @@
       "server": "104.17.147.22",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1291,7 +1277,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1308,6 +1295,7 @@
       "server": "172.67.216.240",
       "server_port": 443,
       "password": "70776bb4-d791-4cbd-9c9b-c76e937f9e60",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1323,7 +1311,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1340,6 +1329,7 @@
       "server": "104.18.34.202",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1355,7 +1345,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1372,6 +1363,7 @@
       "server": "154.17.25.96",
       "server_port": 443,
       "password": "3lSlAcxDSNpeKOyZ3pIlyYRC7328C3X93Aa8SFOgDX4D7An0zYSRDRuaRE8lCpCASE6Bu",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1384,7 +1376,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -1393,6 +1386,7 @@
       "server": "104.18.27.94",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1405,7 +1399,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1422,6 +1417,7 @@
       "server": "104.16.142.237",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1434,7 +1430,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1451,6 +1448,7 @@
       "server": "172.67.179.98",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1463,7 +1461,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1480,6 +1479,7 @@
       "server": "104.26.12.23",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1495,7 +1495,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1512,6 +1513,7 @@
       "server": "104.21.71.112",
       "server_port": 443,
       "password": "895552fa-6284-4c1d-ba00-3944e0c7c626",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1524,7 +1526,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1541,6 +1544,7 @@
       "server": "172.67.68.240",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1553,7 +1557,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1570,6 +1575,7 @@
       "server": "104.26.6.214",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1585,7 +1591,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1602,6 +1609,7 @@
       "server": "104.18.42.17",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1617,7 +1625,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1634,6 +1643,7 @@
       "server": "162.159.153.247",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1649,7 +1659,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1666,6 +1677,7 @@
       "server": "104.21.80.1",
       "server_port": 443,
       "password": "84831b86-5c76-4173-bdf1-02fa3ed78a32",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1681,7 +1693,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1698,6 +1711,7 @@
       "server": "172.67.220.93",
       "server_port": 443,
       "password": "9e7caa3b-ca9c-40ba-9ea0-f0c992359239",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1710,7 +1724,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1727,6 +1742,7 @@
       "server": "104.21.77.44",
       "server_port": 443,
       "password": "0bf83a1d-f785-487a-a479-3c3de2566ba6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1739,7 +1755,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1756,6 +1773,7 @@
       "server": "172.67.201.201",
       "server_port": 443,
       "password": "a5fd0c47-f3f6-48c8-becb-cc766edf3e1a",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1768,7 +1786,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1785,6 +1804,7 @@
       "server": "104.26.6.37",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1797,7 +1817,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1814,6 +1835,7 @@
       "server": "104.16.21.118",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1829,7 +1851,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1846,6 +1869,7 @@
       "server": "104.21.75.193",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1861,7 +1885,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1878,6 +1903,7 @@
       "server": "104.21.12.116",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1893,7 +1919,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1910,6 +1937,7 @@
       "server": "172.67.138.187",
       "server_port": 443,
       "password": "3d4ad187-b554-4300-bf71-d26c71962504",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1925,7 +1953,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1942,6 +1971,7 @@
       "server": "172.64.153.54",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1957,7 +1987,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -1974,6 +2005,7 @@
       "server": "162.159.152.17",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -1986,7 +2018,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2003,6 +2036,7 @@
       "server": "104.21.18.144",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2018,7 +2052,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2035,6 +2070,7 @@
       "server": "13.215.193.69",
       "server_port": 18332,
       "password": "7BzaRCYwD8Cu3YxazA2yAEpgZ30Sy8lXp3YyAlcODDpEj7ZxS0YlFR9NTCSAFx3qT2Opn",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2047,7 +2083,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -2056,6 +2093,7 @@
       "server": "104.22.37.243",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2071,7 +2109,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2088,6 +2127,7 @@
       "server": "172.67.161.104",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2103,7 +2143,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2120,6 +2161,7 @@
       "server": "104.21.60.213",
       "server_port": 443,
       "password": "a5fd0c47-f3f6-48c8-becb-cc766edf3e1a",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2135,7 +2177,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2152,6 +2195,7 @@
       "server": "172.67.70.191",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2164,7 +2208,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2181,6 +2226,7 @@
       "server": "172.67.192.124",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2193,7 +2239,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2210,6 +2257,7 @@
       "server": "104.21.88.129",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2225,7 +2273,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2242,6 +2291,7 @@
       "server": "104.18.26.94",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2257,7 +2307,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2274,6 +2325,7 @@
       "server": "104.26.7.37",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2289,7 +2341,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2306,6 +2359,7 @@
       "server": "172.67.71.122",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2321,7 +2375,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2338,6 +2393,7 @@
       "server": "104.19.173.68",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2350,7 +2406,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2367,6 +2424,7 @@
       "server": "104.22.15.132",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2379,7 +2437,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2396,6 +2455,7 @@
       "server": "172.67.30.171",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2411,7 +2471,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2428,6 +2489,7 @@
       "server": "104.22.14.132",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2443,7 +2505,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2460,6 +2523,7 @@
       "server": "104.16.228.229",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2475,7 +2539,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2492,6 +2557,7 @@
       "server": "104.16.229.229",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2504,7 +2570,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2521,6 +2588,7 @@
       "server": "172.67.144.126",
       "server_port": 443,
       "password": "895552fa-6284-4c1d-ba00-3944e0c7c626",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2533,7 +2601,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2550,6 +2619,7 @@
       "server": "104.16.20.118",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2565,7 +2635,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2582,6 +2653,7 @@
       "server": "172.67.152.71",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2597,7 +2669,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2614,6 +2687,7 @@
       "server": "104.21.16.1",
       "server_port": 443,
       "password": "84831b86-5c76-4173-bdf1-02fa3ed78a32",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2629,7 +2703,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2646,6 +2721,7 @@
       "server": "172.67.5.78",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2658,7 +2734,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2675,6 +2752,7 @@
       "server": "172.67.69.129",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2690,7 +2768,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2709,6 +2788,7 @@
       "uuid": "0a23af3f-3f9b-4333-ae89-796f7fe2f9ce",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2721,7 +2801,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2740,6 +2821,7 @@
       "uuid": "ec7de7e0-3f09-4ef4-8a34-e441917d65fa",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2755,7 +2837,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2774,6 +2857,7 @@
       "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2789,7 +2873,8 @@
         },
         "alpn": [
           "h2"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -2807,6 +2892,7 @@
       "uuid": "0c27902d-c232-4044-ba68-b808c8ad8231",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2819,7 +2905,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2838,6 +2925,7 @@
       "uuid": "30f2d443-af46-4dd6-83c9-b5e17299ebd2",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2853,7 +2941,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2872,6 +2961,7 @@
       "uuid": "508a5202-d450-42d2-a74c-9326dcda8b63",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2887,7 +2977,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2906,6 +2997,7 @@
       "uuid": "e74d7639-3755-4624-b770-efa6e7ec09a8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2921,7 +3013,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2940,6 +3033,7 @@
       "uuid": "8250d638-45df-41fa-b06f-160d1cb1de0c",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2952,7 +3046,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -2971,6 +3066,7 @@
       "uuid": "4527ff0c-8ac2-452a-95cb-c2d29e5a8421",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -2983,7 +3079,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3002,6 +3099,7 @@
       "uuid": "f055d270-0e76-4a41-a53f-871bbb51b003",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3014,7 +3112,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3033,6 +3132,7 @@
       "uuid": "8494f144-0512-4f94-8358-aac140b61ff4",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3048,7 +3148,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "httpupgrade",
@@ -3065,6 +3166,7 @@
       "uuid": "e20ebe01-1815-4c09-8e77-fb2f168263ce",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3077,7 +3179,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3088,6 +3191,7 @@
       "uuid": "15325faa-ecb3-44c6-817d-fb8853b2b175",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3100,7 +3204,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3119,6 +3224,7 @@
       "uuid": "8250d638-45df-41fa-b06f-160d1cb1de0c",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3131,7 +3237,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3150,6 +3257,7 @@
       "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3165,7 +3273,8 @@
         },
         "alpn": [
           "h2"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -3183,6 +3292,7 @@
       "uuid": "d4e52293-4a82-404c-ac29-93afc006dcbb",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3198,7 +3308,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3217,6 +3328,7 @@
       "uuid": "8250d638-45df-41fa-b06f-160d1cb1de0c",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3229,7 +3341,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3248,6 +3361,7 @@
       "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3263,7 +3377,8 @@
         },
         "alpn": [
           "h2"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -3281,6 +3396,7 @@
       "uuid": "e20ebe01-1815-4c09-8e77-fb2f168263ce",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3297,7 +3413,8 @@
         "alpn": [
           "h2",
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       }
     },
     {
@@ -3308,6 +3425,7 @@
       "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3323,7 +3441,8 @@
         },
         "alpn": [
           "h2"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -3341,6 +3460,7 @@
       "uuid": "e20ebe01-1815-4c09-8e77-fb2f168263ce",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3353,7 +3473,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3364,6 +3485,7 @@
       "uuid": "0a44145f-59dc-4e5b-a233-677b97f5114c",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3376,7 +3498,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3387,6 +3510,7 @@
       "uuid": "f055d270-0e76-4a41-a53f-871bbb51b003",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3399,7 +3523,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3418,6 +3543,7 @@
       "uuid": "a5fd0c47-f3f6-48c8-becb-cc766edf3e1a",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3433,7 +3559,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3452,6 +3579,7 @@
       "uuid": "8250d638-45df-41fa-b06f-160d1cb1de0c",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3464,7 +3592,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3483,6 +3612,7 @@
       "uuid": "ced307a2-af2c-4113-bebc-fb888c702b7d",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3498,7 +3628,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3517,6 +3648,7 @@
       "uuid": "401374e6-df77-41fb-f638-dad8184f175b",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3532,7 +3664,8 @@
         },
         "alpn": [
           "h2"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -3553,6 +3686,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3565,7 +3699,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3587,6 +3722,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3599,7 +3735,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3621,6 +3758,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3633,7 +3771,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3657,6 +3796,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3669,7 +3809,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3686,6 +3827,7 @@
       "server": "www.gov.ua",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3701,7 +3843,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3718,6 +3861,7 @@
       "server": "www.ipaddress.my",
       "server_port": 443,
       "password": "6884d714-d3c4-4b49-aa20-767ea92837d6",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3733,7 +3877,8 @@
         },
         "alpn": [
           "h3"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3752,6 +3897,7 @@
       "uuid": "ec7de7e0-3f09-4ef4-8a34-e441917d65fa",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3767,7 +3913,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3784,6 +3931,7 @@
       "server": "bangladeshipatri.com",
       "server_port": 443,
       "password": "f0eb8c92ce8946aaba856569cff1a16b",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3796,7 +3944,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3805,6 +3954,7 @@
       "server": "142.202.48.220",
       "server_port": 443,
       "password": "f0eb8c92ce8946aaba856569cff1a16b",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3817,7 +3967,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3826,6 +3977,7 @@
       "server": "sherasheba.com",
       "server_port": 443,
       "password": "0ab6c98dae3b48e8b9c4a776b6c9c19a",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3838,7 +3990,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3847,6 +4000,7 @@
       "server": "23.150.248.107",
       "server_port": 443,
       "password": "dba20dcb635e430fa4d3bfc303a149d2",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3859,7 +4013,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3868,6 +4023,7 @@
       "server": "jobscareertoday.com",
       "server_port": 443,
       "password": "dba20dcb635e430fa4d3bfc303a149d2",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3880,7 +4036,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3889,6 +4046,7 @@
       "server": "jobscareerfortoday.com",
       "server_port": 443,
       "password": "cb1f26aa437d4bfa9b841d28503ce8cc",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3901,7 +4059,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3910,6 +4069,7 @@
       "server": "jobscareerforlawyers.com",
       "server_port": 443,
       "password": "f0eb8c92ce8946aaba856569cff1a16b",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3922,7 +4082,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3931,6 +4092,7 @@
       "server": "3.253.125.90",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3943,7 +4105,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -3957,6 +4120,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -3969,7 +4133,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -3991,6 +4156,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4003,7 +4169,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4020,6 +4187,7 @@
       "server": "15.236.44.242",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4032,7 +4200,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -4041,6 +4210,7 @@
       "server": "18.170.81.18",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4056,7 +4226,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       }
     },
     {
@@ -4065,6 +4236,7 @@
       "server": "172.99.190.180",
       "server_port": 443,
       "password": "f0eb8c92ce8946aaba856569cff1a16b",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4077,7 +4249,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -4086,6 +4259,7 @@
       "server": "134.195.196.138",
       "server_port": 443,
       "password": "b4e8771997c94732acbc9ec4d19c2589",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4098,7 +4272,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -4107,6 +4282,7 @@
       "server": "23.150.248.50",
       "server_port": 443,
       "password": "cb1f26aa437d4bfa9b841d28503ce8cc",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4119,7 +4295,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -4128,6 +4305,7 @@
       "server": "35.179.198.137",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4143,7 +4321,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       }
     },
     {
@@ -4152,6 +4331,7 @@
       "server": "52.31.157.66",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4167,7 +4347,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       }
     },
     {
@@ -4176,6 +4357,7 @@
       "server": "23.150.248.54",
       "server_port": 443,
       "password": "f0eb8c92ce8946aaba856569cff1a16b",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4188,7 +4370,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -4202,6 +4385,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4219,6 +4403,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4236,6 +4421,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4250,6 +4436,7 @@
       "uuid": "5c3c0524-dcb5-4355-ab16-6fb2da080aa1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4262,7 +4449,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4283,6 +4471,7 @@
       "uuid": "5c3c0524-dcb5-4355-ab16-6fb2da080aa1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4295,7 +4484,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4316,6 +4506,7 @@
       "uuid": "26721978-890e-4946-bafa-cb03c9ff7f4a",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4330,6 +4521,7 @@
       "uuid": "81ea9859-804d-4307-9fd5-c5648375dc26",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4344,6 +4536,7 @@
       "uuid": "dc8eccdb-ecfa-435f-9ac1-5dc4882e7b51",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4366,6 +4559,7 @@
       "uuid": "15c64822-1a11-419c-9ec2-7cb2807ec3b4",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4383,7 +4577,8 @@
           "enabled": true,
           "public_key": "YWfCdTnr4FAOMYTY2dLrMtQUokyxOGpPhYEEszPj20E",
           "short_id": "7fe29733"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -4401,6 +4596,7 @@
       "uuid": "0cadadcb-626f-4f2e-92f1-eb53fbf05409",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4418,7 +4614,8 @@
           "enabled": true,
           "public_key": "nH3T6BaLX8d6j_oNOM4vrrx4gvH2TPNZpuggy-_RbmE",
           "short_id": "1a9c57ec"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "http",
@@ -4433,6 +4630,7 @@
       "uuid": "ab7abbf6-09ae-4adf-f7b7-523f215d4d1f",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4450,7 +4648,8 @@
           "enabled": true,
           "public_key": "KqT26J4IAfurO6f5Fpa4e0oQ1hwAJiVqrxKLm7lTEkM",
           "short_id": ""
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -4468,6 +4667,7 @@
       "uuid": "6ff213b8-ccc7-4b5a-b4aa-37f7b792a1f1",
       "flow": "xtls-rprx-vision",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4485,7 +4685,8 @@
           "enabled": true,
           "public_key": "B5i03yc1WUTOQD8v_N0UrCUaR4AgMJ40rEl8tXUJY0g",
           "short_id": "01b200e90e250221"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -4496,6 +4697,7 @@
       "uuid": "3237181b-74a5-4917-bc74-2958fa21786a",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4513,7 +4715,8 @@
           "h3",
           "h2",
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4534,6 +4737,7 @@
       "uuid": "53a58a9f-204a-4351-b093-16b9ada44071",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4546,7 +4750,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4564,6 +4769,7 @@
       "uuid": "a6292090-afe1-4640-97a7-4f1d1d877cf1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4579,7 +4785,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4598,6 +4805,7 @@
       "uuid": "a06b8c34-2539-4417-a7ef-1cb09dd5217d",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4610,7 +4818,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4629,6 +4838,7 @@
       "uuid": "a06b8c34-2539-4417-a7ef-1cb09dd5217d",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4641,7 +4851,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4660,6 +4871,7 @@
       "uuid": "a06b8c34-2539-4417-a7ef-1cb09dd5217d",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4672,7 +4884,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4691,6 +4904,7 @@
       "uuid": "a06b8c34-2539-4417-a7ef-1cb09dd5217d",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4703,7 +4917,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -4725,6 +4940,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4752,6 +4968,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4764,7 +4981,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -4785,6 +5003,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4809,6 +5028,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4833,6 +5053,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4857,6 +5078,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4881,6 +5103,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4905,6 +5128,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4929,6 +5153,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4953,6 +5178,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -4977,6 +5203,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5001,6 +5228,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5025,6 +5253,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5049,6 +5278,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5073,6 +5303,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5097,6 +5328,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5121,6 +5353,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5145,6 +5378,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5169,6 +5403,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5190,6 +5425,7 @@
       "uuid": "526c94c5-e2d0-402f-ead9-0d8759ed4ee9",
       "flow": "xtls-rprx-vision",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5207,7 +5443,8 @@
           "enabled": true,
           "public_key": "W9BjX6YmCIVsjhKMlz233Yoe0xcf0SVHfvPKqbf3vCg",
           "short_id": ""
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -5218,6 +5455,7 @@
       "uuid": "590049f6-2546-472c-d49d-0b067f1559e5",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5235,7 +5473,8 @@
           "enabled": true,
           "public_key": "-05lGlYtr_9Kf8TJYTIzFRAUENehUdhxuE7F8dZorwc",
           "short_id": ""
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -5253,6 +5492,7 @@
       "uuid": "d154304e-ca84-416e-897d-3c9d17b00bd0",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5270,7 +5510,8 @@
           "enabled": true,
           "public_key": "AVesZ9rUbwnESVl0YSPs98oWmZbXlhDVjR4ssJAw6yw",
           "short_id": "32d7a82d"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -5288,6 +5529,7 @@
       "uuid": "d4e86f4d-3443-4af4-884f-10f44b226fde",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5305,7 +5547,8 @@
           "enabled": true,
           "public_key": "AVesZ9rUbwnESVl0YSPs98oWmZbXlhDVjR4ssJAw6yw",
           "short_id": "32d7a82d"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -5323,6 +5566,7 @@
       "uuid": "f90c6c56-9908-4fc6-8aad-3bfe21859a4a",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5340,7 +5584,8 @@
           "enabled": true,
           "public_key": "AVesZ9rUbwnESVl0YSPs98oWmZbXlhDVjR4ssJAw6yw",
           "short_id": "32d7a82d"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -5361,6 +5606,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5378,6 +5624,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5395,6 +5642,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5419,6 +5667,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5436,6 +5685,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5453,6 +5703,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5470,6 +5721,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5485,7 +5737,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -5507,6 +5760,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5524,6 +5778,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5548,6 +5803,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5562,6 +5818,7 @@
       "uuid": "e917db16-e9b4-4aa7-8a77-617f5e82f1f8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5586,6 +5843,7 @@
       "uuid": "5240bfd4-ca6d-4757-8213-a6aab72d734e",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5610,6 +5868,7 @@
       "uuid": "e917db16-e9b4-4aa7-8a77-617f5e82f1f8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5634,6 +5893,7 @@
       "uuid": "86883d84-162c-42c4-af65-11dd80eb2ffa",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5658,6 +5918,7 @@
       "uuid": "0ff570d3-3452-4990-8144-fd2cb9357e09",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5682,6 +5943,7 @@
       "uuid": "4e4fe94d-d9f2-4679-879a-b06fbb28ddf1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5706,6 +5968,7 @@
       "uuid": "b111c17d-c8a4-4d4d-a417-fa40a020bcc8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5730,6 +5993,7 @@
       "uuid": "4e4fe94d-d9f2-4679-879a-b06fbb28ddf1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5754,6 +6018,7 @@
       "uuid": "e917db16-e9b4-4aa7-8a77-617f5e82f1f8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5778,6 +6043,7 @@
       "uuid": "e917db16-e9b4-4aa7-8a77-617f5e82f1f8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5802,6 +6068,7 @@
       "uuid": "b6e97b8a-1b43-4fa9-ab1b-d0139df07f59",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5826,6 +6093,7 @@
       "uuid": "e917db16-e9b4-4aa7-8a77-617f5e82f1f8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5850,6 +6118,7 @@
       "uuid": "4e4fe94d-d9f2-4679-879a-b06fbb28ddf1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5874,6 +6143,7 @@
       "uuid": "e917db16-e9b4-4aa7-8a77-617f5e82f1f8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5898,6 +6168,7 @@
       "uuid": "4e4fe94d-d9f2-4679-879a-b06fbb28ddf1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5922,6 +6193,7 @@
       "uuid": "4e4fe94d-d9f2-4679-879a-b06fbb28ddf1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5946,6 +6218,7 @@
       "uuid": "e917db16-e9b4-4aa7-8a77-617f5e82f1f8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5970,6 +6243,7 @@
       "uuid": "e917db16-e9b4-4aa7-8a77-617f5e82f1f8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -5994,6 +6268,7 @@
       "uuid": "4e4fe94d-d9f2-4679-879a-b06fbb28ddf1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6018,6 +6293,7 @@
       "uuid": "86883d84-162c-42c4-af65-11dd80eb2ffa",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6042,6 +6318,7 @@
       "uuid": "21ef2919-6799-471f-8eb1-ff6aeef642e5",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6066,6 +6343,7 @@
       "uuid": "dc97a4c7-0d9a-45f1-aba9-751694a4dc2e",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6083,7 +6361,8 @@
           "enabled": true,
           "public_key": "_Z2IaA-ijhsYHThi0MzL3w9GKn7XsapGaXEvv81cQWU",
           "short_id": "4964"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "grpc",
@@ -6101,6 +6380,7 @@
       "uuid": "f3562b04-2f2b-433a-80b4-45f60d659004",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6125,6 +6405,7 @@
       "uuid": "9b7645aa-91f4-4f6d-98d9-c22f4ce8784f",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6149,6 +6430,7 @@
       "uuid": "9b7645aa-91f4-4f6d-98d9-c22f4ce8784f",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6173,6 +6455,7 @@
       "uuid": "47f50770-e3a5-459d-8163-193f035ac71d",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6185,7 +6468,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "http",
@@ -6200,6 +6484,7 @@
       "uuid": "d01daff8-a872-4b94-ce6c-8701cf0afe80",
       "flow": "xtls-rprx-vision",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6217,7 +6502,8 @@
           "enabled": true,
           "public_key": "aNxDfPBEPVwHDdQef4PElRfPt3q-7O7yPrZsYnGjPS0",
           "short_id": "1593c895"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -6228,6 +6514,7 @@
       "uuid": "81f66d1d-c19d-482f-fbb2-55e9c0eed5f8",
       "flow": "xtls-rprx-vision",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6245,7 +6532,8 @@
           "enabled": true,
           "public_key": "9kiwAzpDodSbd10Ejju4HuhWVGN_PpqQVQp7kqhbmhY",
           "short_id": ""
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -6256,6 +6544,7 @@
       "uuid": "ab954190-4554-4c09-9dfe-dc264069e9ee",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6277,6 +6566,7 @@
       "uuid": "4c5f4cf8-b30a-4658-84bb-f0145dd123d4",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6289,7 +6579,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6308,6 +6599,7 @@
       "uuid": "fcfaa054-71e8-4c70-b722-af44d51d36b3",
       "flow": "xtls-rprx-vision",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6325,7 +6617,8 @@
           "enabled": true,
           "public_key": "Fgq1CYwj4NqAHWLEImDuL5d2bzztDMM1-FfaeR3I00k",
           "short_id": "b5e4a8100b8754"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -6336,6 +6629,7 @@
       "uuid": "TELEGRAM-NUFiLTER",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6360,6 +6654,7 @@
       "uuid": "telegram-id-ArV2ray",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6384,6 +6679,7 @@
       "uuid": "Chanell-hopev2ray",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6403,6 +6699,7 @@
       "server": "134.195.196.138",
       "server_port": 443,
       "password": "f0eb8c92ce8946aaba856569cff1a16b",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6415,7 +6712,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -6424,6 +6722,7 @@
       "server": "23.150.248.107",
       "server_port": 443,
       "password": "dba20dcb635e430fa4d3bfc303a149d2",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6439,7 +6738,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6461,6 +6761,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6478,6 +6779,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6492,6 +6794,7 @@
       "uuid": "349956b8-b0c8-45ac-acb9-ed7881fc88b1",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6507,7 +6810,8 @@
         },
         "alpn": [
           "h2"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6528,6 +6832,7 @@
       "uuid": "f0556de9-037d-5369-9352-4b8d2a893263",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6543,7 +6848,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6562,6 +6868,7 @@
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6586,6 +6893,7 @@
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6610,6 +6918,7 @@
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6637,6 +6946,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6649,7 +6959,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6668,6 +6979,7 @@
       "uuid": "2457d72e-4178-4c2b-885d-a01a333dcc4f",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6680,7 +6992,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6697,6 +7010,7 @@
       "server": "142.202.48.220",
       "server_port": 443,
       "password": "f0eb8c92ce8946aaba856569cff1a16b",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6712,7 +7026,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6729,6 +7044,7 @@
       "server": "23.150.248.50",
       "server_port": 443,
       "password": "71409d3e488548e8bb076d229778f008",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6744,7 +7060,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6761,6 +7078,7 @@
       "server": "23.150.248.54",
       "server_port": 443,
       "password": "669d0ac7b5b64ebbb1abb75d5d540a5c",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6776,7 +7094,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6798,6 +7117,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6810,7 +7130,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6832,6 +7153,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6844,7 +7166,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6866,6 +7189,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6878,7 +7202,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6897,6 +7222,7 @@
       "uuid": "76bf3c4c-57c6-486d-b964-e0a7cf0882ee",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6909,7 +7235,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "randomized"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6933,6 +7260,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6954,6 +7282,7 @@
       "uuid": "994c91dd-b282-4c25-a0c5-af76b480c080",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -6966,7 +7295,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -6987,6 +7317,7 @@
       "uuid": "6ff213b8-ccc7-4b5a-b4aa-37f7b792a1f1",
       "flow": "xtls-rprx-vision",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7004,7 +7335,8 @@
           "enabled": true,
           "public_key": "B5i03yc1WUTOQD8v_N0UrCUaR4AgMJ40rEl8tXUJY0g",
           "short_id": "01b200e90e250221"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -7015,6 +7347,7 @@
       "uuid": "6ff213b8-ccc7-4b5a-b4aa-37f7b792a1f1",
       "flow": "xtls-rprx-vision",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7032,7 +7365,8 @@
           "enabled": true,
           "public_key": "B5i03yc1WUTOQD8v_N0UrCUaR4AgMJ40rEl8tXUJY0g",
           "short_id": "01b200e90e250221"
-        }
+        },
+        "record_fragment": true
       }
     },
     {
@@ -7041,6 +7375,7 @@
       "server": "23.150.248.107",
       "server_port": 443,
       "password": "242a3d8eee5e4ed1a6bfa4141d549a25",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7056,7 +7391,8 @@
         },
         "alpn": [
           "http/1.1"
-        ]
+        ],
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7075,6 +7411,7 @@
       "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7102,6 +7439,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7114,7 +7452,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7133,6 +7472,7 @@
       "uuid": "f684b3ec-afcc-4bad-96f6-fefa05a9017f",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7147,6 +7487,7 @@
       "uuid": "d578322a-266b-479d-9eda-f1b41324e721",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7169,6 +7510,7 @@
       "uuid": "39d5ea22-1c73-4b12-8b5b-2be82c78add8",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7193,6 +7535,7 @@
       "uuid": "c7953896-7bb2-4ce2-c7ca-117b2678b47f",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7217,6 +7560,7 @@
       "uuid": "de5eedc7-4292-4b5d-f7ac-851e7236e2c9",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7241,6 +7585,7 @@
       "uuid": "de5eedc7-4292-4b5d-f7ac-851e7236e2c9",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7265,6 +7610,7 @@
       "uuid": "2d5d4230-10e2-4ee9-afe5-a55c20d2cb3b",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7277,7 +7623,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7296,6 +7643,7 @@
       "uuid": "b5cdabf0-e048-4fa2-90da-9379b1a4926e",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7318,6 +7666,7 @@
       "uuid": "b5cdabf0-e048-4fa2-90da-9379b1a4926e",
       "flow": "",
       "packet_encoding": "xudp",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7343,6 +7692,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7367,6 +7717,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7391,6 +7742,7 @@
       "global_padding": false,
       "authenticated_length": true,
       "packet_encoding": "",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7403,7 +7755,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7420,6 +7773,7 @@
       "server": "104.18.183.150",
       "server_port": 443,
       "password": "blue2024",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7432,7 +7786,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7451,6 +7806,7 @@
       "server": "104.20.159.193",
       "server_port": 443,
       "password": "blue2024",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7463,7 +7819,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7482,6 +7839,7 @@
       "server": "104.18.35.253",
       "server_port": 443,
       "password": "blue2024",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7494,7 +7852,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7513,6 +7872,7 @@
       "server": "172.67.67.64",
       "server_port": 443,
       "password": "WOeXShhJpL",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7525,7 +7885,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7542,6 +7903,7 @@
       "server": "172.64.229.171",
       "server_port": 443,
       "password": "blue2024",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7554,7 +7916,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7573,6 +7936,7 @@
       "server": "104.17.133.24",
       "server_port": 443,
       "password": "blue2024",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7585,7 +7949,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7604,6 +7969,7 @@
       "server": "104.19.175.73",
       "server_port": 443,
       "password": "blue2024",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7616,7 +7982,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "randomized"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7635,6 +8002,7 @@
       "server": "104.17.120.23",
       "server_port": 443,
       "password": "blue2024",
+      "tcp_fast_open": true,
       "multiplex": {
         "enabled": false,
         "protocol": "smux",
@@ -7647,7 +8015,8 @@
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
-        }
+        },
+        "record_fragment": true
       },
       "transport": {
         "type": "ws",
@@ -7658,1450 +8027,14 @@
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "251.🔒 (217)",
-      "server": "104.26.12.31",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "tb.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "tb.promote.icu"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "252.🔒 (274)",
-      "server": "190.93.246.178",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "randomized"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "253.🔒 (282)",
-      "server": "104.16.159.3",
-      "server_port": 443,
-      "password": "dba20dcb635e430fa4d3bfc303a149d2",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "bangladeshipatri.com",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "6b777a91",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "bangladeshipatri.com"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "254.🔒 (292)",
-      "server": "172.64.233.44",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "randomized"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "255.🔒 (294)",
-      "server": "104.18.200.131",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "256.🔒 (338)",
-      "server": "104.16.45.220",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "257.🔒 (352)",
-      "server": "15.236.166.230",
-      "server_port": 22222,
-      "password": "telegram-id-directvpn",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trojan.burgerip.co.uk",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "alpn": [
-          "http/1.1"
-        ]
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "258.🔒 (369)",
-      "server": "104.19.243.142",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "259.🔒 (374)",
-      "server": "104.16.214.5",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "260.🔒 (389)",
-      "server": "104.17.49.240",
-      "server_port": 443,
-      "password": "WOeXShhJpL",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "09jzus.zdzdzd.xyz",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/juzigongyi",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "09jzus.zdzdzd.xyz"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "261.🔒 (425)",
-      "server": "13.48.35.95",
-      "server_port": 22222,
-      "password": "telegram-id-directvpn",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trojan.burgerip.co.uk",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "alpn": [
-          "http/1.1"
-        ]
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "262.🔒 (439)",
-      "server": "104.16.97.152",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "263.🔒 (452)",
-      "server": "13.51.49.119",
-      "server_port": 22222,
-      "password": "telegram-id-privatevpns",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trojan.burgerip.co.uk",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "alpn": [
-          "http/1.1"
-        ]
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "264.🔒 (491)",
-      "server": "141.101.114.199",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "265.🔒 (516)",
-      "server": "172.64.201.25",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "tb.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "tb.promote.icu"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "266.🔒 (520)",
-      "server": "104.16.72.34",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "267.🔒 (532)",
-      "server": "104.25.103.196",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "268.🔒 (533)",
-      "server": "173.245.59.6",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "269.🔒 (536)",
-      "server": "104.21.75.193",
-      "server_port": 443,
-      "password": "bpb-trojan",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "bpb-hd.aaronchin.xyz",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "randomized"
-        },
-        "alpn": [
-          "h3"
-        ]
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/tr",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "bpb-hd.aaronchin.xyz"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "270.🔒 (577)",
-      "server": "104.18.79.171",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "271.🔒 (623)",
-      "server": "104.16.239.100",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "randomized"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "272.🔒 (624)",
-      "server": "104.17.165.253",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "273.🔒 (634)",
-      "server": "172.64.35.155",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "tb.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "tb.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "274.🔒 (668)",
-      "server": "104.16.99.204",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "275.🔒 (696)",
-      "server": "104.17.21.144",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "276.🔒 (738)",
-      "server": "185.146.173.34",
-      "server_port": 443,
-      "password": "aee423ce-e4b0-4555-b5b7-486dd0284fd2",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "nl1.trojanvpn.xyz",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "nl1.trojanvpn.xyz"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "277.🔒 (767)",
-      "server": "104.19.238.216",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "278.🔒 (814)",
-      "server": "104.18.46.185",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "279.🔒 (817)",
-      "server": "104.19.253.28",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "280.🔒 (819)",
-      "server": "162.159.44.155",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "tb.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "tb.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "281.🔒 (864)",
-      "server": "104.219.41.229",
-      "server_port": 443,
-      "password": "Julius",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "miami.juliusnet.com",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "282.🔒 (872)",
-      "server": "104.17.23.86",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "283.🔒 (876)",
-      "server": "162.159.44.207",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "tb.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "tb.promote.icu"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "284.🔒 (907)",
-      "server": "104.17.168.184",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "285.🔒 (912)",
-      "server": "104.18.71.140",
-      "server_port": 443,
-      "password": "WOeXShhJpL",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "09jzus.zdzdzd.xyz",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/juzigongyi",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "09jzus.zdzdzd.xyz"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "286.🔒 (925)",
-      "server": "104.16.107.194",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "287.🔒 (966)",
-      "server": "188.244.122.205",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "288.🔒 (967)",
-      "server": "185.146.173.42",
-      "server_port": 443,
-      "password": "542f66d8-6b06-4340-a829-76d23db7ca80",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "fr1.trojanvpn.xyz",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "fr1.trojanvpn.xyz"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "289.🔒 (973)",
-      "server": "104.18.123.217",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "290.🔒 (999)",
-      "server": "162.159.135.218",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "291.🔒 (1032)",
-      "server": "104.18.119.211",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ta.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "ta.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "292.🔒 (1033)",
-      "server": "104.19.190.86",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "293.🔒 (1040)",
-      "server": "83.217.9.139",
-      "server_port": 2087,
-      "password": "Y2KxAVPRcOF-IvptVExpMA",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "9e0b317f2d34c3c4.gsmvx.com",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "alpn": [
-          "h3",
-          "h2",
-          "http/1.1"
-        ]
-      },
-      "transport": {
-        "type": "http",
-        "path": "/FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT@FucKMtNMciNeT"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "294.🔒 (1042)",
-      "server": "104.16.139.171",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "295.🔒 (1051)",
-      "server": "104.16.10.12",
-      "server_port": 443,
-      "password": "blue2024",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "td.promote.icu",
-        "insecure": false,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "td.promote.icu"
-        },
-        "max_early_data": 2560,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "296.🔒 VM-TCP-NA 🇺🇸 US-107.148.207.249:48712",
-      "server": "107.148.207.249",
-      "server_port": 48712,
-      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
-      "security": "auto",
-      "alter_id": 0,
-      "global_padding": false,
-      "authenticated_length": true,
-      "packet_encoding": "",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "297.🔒 VM-TCP-NA 🇨🇦 CA-108.181.200.220:17163",
-      "server": "108.181.200.220",
-      "server_port": 17163,
-      "uuid": "d54814a1-7a93-45f8-9117-db317a25d100",
-      "security": "auto",
-      "alter_id": 0,
-      "global_padding": false,
-      "authenticated_length": true,
-      "packet_encoding": "",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "298.🔒 (1213)",
-      "server": "151.101.194.165",
-      "server_port": 80,
-      "uuid": "a409464b-a13a-4070-96fa-07d916d6bb2e",
-      "flow": "",
-      "packet_encoding": "xudp",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "transport": {
-        "type": "ws",
-        "path": "@vmessorg----@vmessorg-----@vmessorg----@vmessorg----@vmessorg----@vmessorg----@vmessorg----@vmessorg----@vmessorg----@vmessorg----@vmessorg----@vmessorg",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "TEL.VMESSORG.http.www.speedtest.net.fast.com.vmessorgg.ir"
-        },
-        "max_early_data": 2480,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "299.🔒 (1216)",
-      "server": "172.67.70.123",
-      "server_port": 80,
-      "uuid": "071adfc4-b337-4a90-bdcc-e66a4d327c55",
-      "flow": "",
-      "packet_encoding": "xudp",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/xmlrpc.php",
-        "headers": {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "csgo.mozilla.5.0.xn--2b5baaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.127.0.0.1.offlinespeedtest.netdown.user.xn--2b5baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.0.2.1.xn--j9h1028mqmaoytii00aha21hfjrd.xn--m39h.tor.rubika.cloudns.ch."
-        },
-        "max_early_data": 1080,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "300.🔒 (1269)",
-      "server": "86.104.32.218",
-      "server_port": 26739,
-      "uuid": "ad524a96-dfe5-460c-bf69-7513b3280a8e",
-      "flow": "",
-      "packet_encoding": "xudp",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
       }
     }
   ],
   "route": {
+    "default_domain_resolver": {
+      "server": "dns-plain",
+      "rewrite_ttl": 60
+    },
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "final": "proxy",
