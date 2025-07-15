@@ -65,7 +65,7 @@
       "settings": {
         "auth": "noauth",
         "udp": true,
-        "allowTransparent": false
+        "userLevel": 8
       }
     },
     {
@@ -370,7 +370,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -416,7 +416,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -462,7 +462,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -508,7 +508,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -554,7 +554,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -600,7 +600,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -692,7 +692,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 8443,
             "users": [
               {
@@ -784,7 +784,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -830,7 +830,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 8443,
             "users": [
               {
@@ -922,7 +922,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -968,7 +968,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -1014,7 +1014,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -1106,7 +1106,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -1152,7 +1152,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -1244,7 +1244,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -1302,7 +1302,8 @@
         "balancerTag": "all",
         "inboundTag": [
           "remote-dns"
-        ]
+        ],
+        "type": "field"
       },
       {
         "ip": [
@@ -1340,7 +1341,8 @@
         "ip": [
           "0.0.0.0/0"
         ],
-        "port": 443
+        "port": 443,
+        "type": "field"
       },
       {
         "outboundTag": "udp-noisesv6",
@@ -1348,11 +1350,13 @@
         "ip": [
           "::/0"
         ],
-        "port": 443
+        "port": 443,
+        "type": "field"
       },
       {
         "outboundTag": "direct",
-        "network": "udp"
+        "network": "udp",
+        "type": "field"
       },
       {
         "balancerTag": "all",
@@ -1454,7 +1458,7 @@
       "settings": {
         "auth": "noauth",
         "udp": true,
-        "allowTransparent": false
+        "userLevel": 8
       }
     },
     {
@@ -1759,7 +1763,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -1812,7 +1816,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -1865,7 +1869,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -1918,7 +1922,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -1971,7 +1975,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -2024,7 +2028,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -2130,7 +2134,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 8443,
             "users": [
               {
@@ -2236,7 +2240,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -2289,7 +2293,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 8443,
             "users": [
               {
@@ -2395,7 +2399,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -2448,7 +2452,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -2501,7 +2505,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -2607,7 +2611,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -2660,7 +2664,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -2766,7 +2770,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -2851,13 +2855,15 @@
         "inboundTag": [
           "frag-dns"
         ],
-        "outboundTag": "fragment1"
+        "outboundTag": "fragment1",
+        "type": "field"
       },
       {
         "inboundTag": [
           "remote-dns"
         ],
-        "balancerTag": "all"
+        "balancerTag": "all",
+        "type": "field"
       },
       {
         "ip": [
@@ -2895,7 +2901,8 @@
         "ip": [
           "0.0.0.0/0"
         ],
-        "port": 443
+        "port": 443,
+        "type": "field"
       },
       {
         "outboundTag": "udp-noisesv6",
@@ -2903,11 +2910,13 @@
         "ip": [
           "::/0"
         ],
-        "port": 443
+        "port": 443,
+        "type": "field"
       },
       {
         "outboundTag": "direct",
-        "network": "udp"
+        "network": "udp",
+        "type": "field"
       },
       {
         "balancerTag": "all",
@@ -3009,7 +3018,7 @@
       "settings": {
         "auth": "noauth",
         "udp": true,
-        "allowTransparent": false
+        "userLevel": 8
       }
     },
     {
@@ -3314,7 +3323,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -3367,7 +3376,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -3420,7 +3429,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -3473,7 +3482,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -3526,7 +3535,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -3579,7 +3588,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 8443,
             "users": [
               {
@@ -3685,7 +3694,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 8443,
             "users": [
               {
@@ -3791,7 +3800,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -3844,7 +3853,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 8443,
             "users": [
               {
@@ -3950,7 +3959,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 8443,
             "users": [
               {
@@ -4003,7 +4012,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -4056,7 +4065,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -4162,7 +4171,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 8443,
             "users": [
               {
@@ -4215,7 +4224,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -4321,7 +4330,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 8443,
             "users": [
               {
@@ -4406,13 +4415,15 @@
         "inboundTag": [
           "frag-dns"
         ],
-        "outboundTag": "fragment2"
+        "outboundTag": "fragment2",
+        "type": "field"
       },
       {
         "inboundTag": [
           "remote-dns"
         ],
-        "balancerTag": "all"
+        "balancerTag": "all",
+        "type": "field"
       },
       {
         "ip": [
@@ -4450,7 +4461,8 @@
         "ip": [
           "0.0.0.0/0"
         ],
-        "port": 443
+        "port": 443,
+        "type": "field"
       },
       {
         "outboundTag": "udp-noisesv6",
@@ -4458,11 +4470,13 @@
         "ip": [
           "::/0"
         ],
-        "port": 443
+        "port": 443,
+        "type": "field"
       },
       {
         "outboundTag": "direct",
-        "network": "udp"
+        "network": "udp",
+        "type": "field"
       },
       {
         "balancerTag": "all",
