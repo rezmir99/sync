@@ -1,0 +1,227 @@
+{
+	"log": {
+	  "access": "",
+	  "error": "",
+	  "loglevel": "warning",
+	  "dnsLog": false
+	},
+	"dns" : {
+		"hosts": {
+      "dns.cloudflare.com": "cloudflare.com",
+	  "dns.google" : [
+				"8.8.8.8",
+				"8.8.4.4",
+				"2001:4860:4860::8888",
+				"2001:4860:4860::8844"
+	   ]
+    	},
+		"servers" : [
+		{
+				"address": "localhost",
+				"domains": [
+					"geosite:private",
+					"full:cloudflare.com",
+					"domain:.ir",
+					"full:www.speedtest.net",
+					"domain:tgju.org",
+					"domain:b2n.ir"
+				],
+				"skipFallback": true
+		},
+		{
+			"address": "https://dns.google/dns-query",
+			"tag": "frag-dns"
+		},
+		"https+local://dns.digitalsize.net/dns-query"
+		],
+		"queryStrategy": "UseIP"
+	  },
+	"inbounds": [
+	  {
+		"tag": "socks",
+		"port": 10808,
+		"listen": "127.0.0.1",
+		"protocol": "socks",
+		"sniffing": {
+		  "enabled": true,
+		  "routeOnly": true,
+		  "destOverride": [
+			"http",
+			"tls"
+		  ]
+		},
+		"settings": {
+		  "auth": "noauth",
+          "udp": true,
+          "userLevel": 8
+		}
+	  },
+	  {
+		"listen": "127.0.0.1",
+		"port": 10853,
+		"protocol": "dokodemo-door",
+		"settings": {
+		  "address": "1.1.1.1",
+		  "network": "tcp,udp",
+		  "port": 53
+		},
+		"tag": "dns-in"
+	  }
+	],
+	"outbounds": [
+    {
+      "tag": "fragment1",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIPv4v6",
+        "fragment": {
+          "packets": "tlshello",
+          "length": "1",
+          "interval": "0"
+        }
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "",
+        "sockopt": {
+          "tcpNoDelay": true,
+          "tcpKeepAliveIdle": 100
+        }
+      }
+    },
+	  {
+		"tag": "direct",
+		"protocol": "freedom",
+		"settings": {
+        "domainStrategy": "UseIP"
+      	}
+	  },
+	  {
+		"tag": "block",
+		"protocol": "blackhole",
+		"settings": {
+		  "response": {
+			"type": "http"
+		  }
+		}
+	  },
+	  {
+		"protocol": "dns",
+		"tag": "dns-out"
+	  },
+	  {
+      "tag": "udp-noisesv4",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "ForceIPv4",
+        "noises": [
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"},
+          {"type": "rand", "packet": "1250", "delay": "10"}, {"type": "rand", "packet": "1250", "delay": "10"}
+        ]
+      }            
+    },
+    {
+      "tag": "udp-noisesv6",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "ForceIPv6",
+        "noises": [
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"},
+          {"type": "rand", "packet": "1230", "delay": "10"}, {"type": "rand", "packet": "1230", "delay": "10"}
+        ]
+      }            
+    }          
+	],
+	"routing": {
+	  "domainStrategy": "AsIs",
+	  "rules": [
+		{
+			"inboundTag": [
+			  "dns-in"
+			],
+			"outboundTag": "dns-out",
+			"type": "field"
+		},
+		{
+			"inboundTag": [
+				"socks"
+			],
+			"port": "53",
+			"outboundTag": "dns-out",
+			"type": "field"
+		},
+		{
+			"inboundTag": ["frag-dns"],
+			"outboundTag": "fragment1",
+			"type": "field"
+    },
+		{
+			"ip": [
+			"10.10.34.34",
+			"10.10.34.35",
+			"10.10.34.36"
+        	],
+        "outboundTag": "block",
+        "type": "field"
+      	},
+		{
+			"domain": [
+				"domain:.ir"
+			],
+			"outboundTag": "direct",
+			"type": "field"
+		},
+		{
+			"ip": [
+				"geoip:private"
+			],
+			"outboundTag": "direct",
+			"type": "field"
+		},
+		{
+			"domain": [
+			  "geosite:private"
+			],
+			"outboundTag": "direct",
+			"type": "field"
+		},
+		{"outboundTag": "udp-noisesv4",
+       	 "network": "udp", "ip": ["0.0.0.0/0"], "port": 443,
+		 "type": "field"
+		},
+		{"outboundTag": "udp-noisesv6",
+		 "network": "udp", "ip": ["::/0"], "port": 443,
+		 "type": "field"
+		},
+		{"outboundTag": "direct",
+		 "network": "udp",
+		 "type": "field"
+		},
+    	{"outboundTag": "fragment1",
+		 "network": "tcp",
+		 "type": "field"
+		}
+	  ]
+	},
+  "remarks": "Serverless"
+}
