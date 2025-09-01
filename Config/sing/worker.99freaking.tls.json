@@ -132,29 +132,29 @@
       "type": "selector",
       "outbounds": [
         "URL-TEST",
-        "1.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "2.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "3.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "4.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "5.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "6.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "7.TLS.restless-feather-3f30.99freaking.workers.dev"
+        "1.TLS.worker1.99freaking.workers.dev",
+        "2.TLS.worker1.99freaking.workers.dev",
+        "3.TLS.worker1.99freaking.workers.dev",
+        "4.TLS.worker1.99freaking.workers.dev",
+        "5.TLS.worker1.99freaking.workers.dev",
+        "6.TLS.worker1.99freaking.workers.dev",
+        "7.TLS.worker1.99freaking.workers.dev"
       ]
     },
     {
       "tag": "URL-TEST",
       "type": "urltest",
       "outbounds": [
-        "1.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "2.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "3.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "4.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "5.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "6.TLS.restless-feather-3f30.99freaking.workers.dev",
-        "7.TLS.restless-feather-3f30.99freaking.workers.dev"
+        "1.TLS.worker1.99freaking.workers.dev",
+        "2.TLS.worker1.99freaking.workers.dev",
+        "3.TLS.worker1.99freaking.workers.dev",
+        "4.TLS.worker1.99freaking.workers.dev",
+        "5.TLS.worker1.99freaking.workers.dev",
+        "6.TLS.worker1.99freaking.workers.dev",
+        "7.TLS.worker1.99freaking.workers.dev"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "20m",
+      "interval": "10m",
       "tolerance": 50
     },
     {
@@ -163,25 +163,20 @@
     },
     {
       "type": "vless",
-      "tag": "1.TLS.restless-feather-3f30.99freaking.workers.dev",
+      "tag": "1.TLS.worker1.99freaking.workers.dev",
       "server": "8.6.112.64",
-      "server_port": 8443,
-      "uuid": "8eb0887f-c950-4af1-abda-c6662acdc266",
+      "server_port": 443,
+      "uuid": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
       "flow": "",
       "packet_encoding": "xudp",
       "tcp_fast_open": true,
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
       "tls": {
         "enabled": true,
-        "server_name": "restless-feather-3f30.99freaking.workers.dev",
+        "server_name": "worker1.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "randomized"
+          "fingerprint": "firefox"
         },
         "alpn": [
           "http/1.1"
@@ -192,7 +187,7 @@
         "path": "/",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "restless-feather-3f30.99freaking.workers.dev"
+          "Host": "worker1.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -200,25 +195,20 @@
     },
     {
       "type": "vless",
-      "tag": "2.TLS.restless-feather-3f30.99freaking.workers.dev",
-      "server": "45.67.215.153",
-      "server_port": 8443,
-      "uuid": "8eb0887f-c950-4af1-abda-c6662acdc266",
+      "tag": "2.TLS.worker1.99freaking.workers.dev",
+      "server": "104.18.12.15",
+      "server_port": 443,
+      "uuid": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
       "flow": "",
       "packet_encoding": "xudp",
       "tcp_fast_open": true,
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
       "tls": {
         "enabled": true,
-        "server_name": "restless-feather-3f30.99freaking.workers.dev",
+        "server_name": "worker1.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "randomized"
+          "fingerprint": "firefox"
         },
         "alpn": [
           "http/1.1"
@@ -229,7 +219,7 @@
         "path": "/",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "restless-feather-3f30.99freaking.workers.dev"
+          "Host": "worker1.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -237,25 +227,20 @@
     },
     {
       "type": "vless",
-      "tag": "3.TLS.restless-feather-3f30.99freaking.workers.dev",
-      "server": "188.114.96.7",
-      "server_port": 8443,
-      "uuid": "8eb0887f-c950-4af1-abda-c6662acdc266",
+      "tag": "3.TLS.worker1.99freaking.workers.dev",
+      "server": "172.67.73.216",
+      "server_port": 443,
+      "uuid": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
       "flow": "",
       "packet_encoding": "xudp",
       "tcp_fast_open": true,
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
       "tls": {
         "enabled": true,
-        "server_name": "restless-feather-3f30.99freaking.workers.dev",
+        "server_name": "worker1.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "randomized"
+          "fingerprint": "firefox"
         },
         "alpn": [
           "http/1.1"
@@ -266,7 +251,7 @@
         "path": "/",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "restless-feather-3f30.99freaking.workers.dev"
+          "Host": "worker1.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -274,25 +259,20 @@
     },
     {
       "type": "vless",
-      "tag": "4.TLS.restless-feather-3f30.99freaking.workers.dev",
-      "server": "63.141.128.17",
-      "server_port": 8443,
-      "uuid": "8eb0887f-c950-4af1-abda-c6662acdc266",
+      "tag": "4.TLS.worker1.99freaking.workers.dev",
+      "server": "104.18.22.19",
+      "server_port": 443,
+      "uuid": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
       "flow": "",
       "packet_encoding": "xudp",
       "tcp_fast_open": true,
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
       "tls": {
         "enabled": true,
-        "server_name": "restless-feather-3f30.99freaking.workers.dev",
+        "server_name": "worker1.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "randomized"
+          "fingerprint": "firefox"
         },
         "alpn": [
           "http/1.1"
@@ -303,7 +283,7 @@
         "path": "/",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "restless-feather-3f30.99freaking.workers.dev"
+          "Host": "worker1.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -311,25 +291,20 @@
     },
     {
       "type": "vless",
-      "tag": "5.TLS.restless-feather-3f30.99freaking.workers.dev",
-      "server": "216.24.57.250",
-      "server_port": 8443,
-      "uuid": "8eb0887f-c950-4af1-abda-c6662acdc266",
+      "tag": "5.TLS.worker1.99freaking.workers.dev",
+      "server": "104.18.3.81",
+      "server_port": 443,
+      "uuid": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
       "flow": "",
       "packet_encoding": "xudp",
       "tcp_fast_open": true,
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
       "tls": {
         "enabled": true,
-        "server_name": "restless-feather-3f30.99freaking.workers.dev",
+        "server_name": "worker1.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "randomized"
+          "fingerprint": "firefox"
         },
         "alpn": [
           "http/1.1"
@@ -340,7 +315,7 @@
         "path": "/",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "restless-feather-3f30.99freaking.workers.dev"
+          "Host": "worker1.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -348,25 +323,20 @@
     },
     {
       "type": "vless",
-      "tag": "6.TLS.restless-feather-3f30.99freaking.workers.dev",
-      "server": "172.66.43.157",
-      "server_port": 8443,
-      "uuid": "8eb0887f-c950-4af1-abda-c6662acdc266",
+      "tag": "6.TLS.worker1.99freaking.workers.dev",
+      "server": "104.18.13.15",
+      "server_port": 443,
+      "uuid": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
       "flow": "",
       "packet_encoding": "xudp",
       "tcp_fast_open": true,
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
       "tls": {
         "enabled": true,
-        "server_name": "restless-feather-3f30.99freaking.workers.dev",
+        "server_name": "worker1.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "randomized"
+          "fingerprint": "firefox"
         },
         "alpn": [
           "http/1.1"
@@ -377,7 +347,7 @@
         "path": "/",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "restless-feather-3f30.99freaking.workers.dev"
+          "Host": "worker1.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -385,25 +355,20 @@
     },
     {
       "type": "vless",
-      "tag": "7.TLS.restless-feather-3f30.99freaking.workers.dev",
-      "server": "69.84.182.136",
-      "server_port": 8443,
-      "uuid": "8eb0887f-c950-4af1-abda-c6662acdc266",
+      "tag": "7.TLS.worker1.99freaking.workers.dev",
+      "server": "104.25.151.10",
+      "server_port": 443,
+      "uuid": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
       "flow": "",
       "packet_encoding": "xudp",
       "tcp_fast_open": true,
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 0
-      },
       "tls": {
         "enabled": true,
-        "server_name": "restless-feather-3f30.99freaking.workers.dev",
+        "server_name": "worker1.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
-          "fingerprint": "randomized"
+          "fingerprint": "firefox"
         },
         "alpn": [
           "http/1.1"
@@ -414,7 +379,7 @@
         "path": "/",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "restless-feather-3f30.99freaking.workers.dev"
+          "Host": "worker1.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -442,6 +407,11 @@
           {
             "port": [
               53
+            ]
+          },
+          {
+            "ip_cidr": [
+              "172.19.0.2"
             ]
           }
         ],
