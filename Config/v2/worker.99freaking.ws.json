@@ -82,23 +82,17 @@
   ],
   "outbounds": [
     {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false,
-        "xudpConcurrency": 8,
-        "xudpProxyUDP443": ""
-      },
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "104.18.26.90",
+            "address": "104.18.3.81",
             "port": 80,
             "users": [
               {
                 "encryption": "none",
                 "flow": "",
-                "id": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
                 "level": 8
               }
             ]
@@ -111,9 +105,9 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "soft98.ir"
           },
-          "path": "/GOv0JYr2cej45VCK?ed=2560"
+          "path": "/kxYOwquVAdvCKodY?ed=2560"
         },
         "sockopt": {
           "dialerProxy": "fragmentws1",
@@ -126,23 +120,17 @@
       "tag": "proxy1_frag1"
     },
     {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false,
-        "xudpConcurrency": 8,
-        "xudpProxyUDP443": ""
-      },
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "104.18.3.81",
+            "address": "216.24.57.250",
             "port": 80,
             "users": [
               {
                 "encryption": "none",
                 "flow": "",
-                "id": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
                 "level": 8
               }
             ]
@@ -155,9 +143,9 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "soft98.ir"
           },
-          "path": "/GOv0JYr2cej45VCK?ed=2560"
+          "path": "/kxYOwquVAdvCKodY?ed=2560"
         },
         "sockopt": {
           "dialerProxy": "fragmentws1",
@@ -170,23 +158,17 @@
       "tag": "proxy2_frag1"
     },
     {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false,
-        "xudpConcurrency": 8,
-        "xudpProxyUDP443": ""
-      },
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "172.66.43.157",
+            "address": "104.18.12.15",
             "port": 80,
             "users": [
               {
                 "encryption": "none",
                 "flow": "",
-                "id": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
                 "level": 8
               }
             ]
@@ -199,9 +181,9 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "soft98.ir"
           },
-          "path": "/GOv0JYr2cej45VCK?ed=2560"
+          "path": "/kxYOwquVAdvCKodY?ed=2560"
         },
         "sockopt": {
           "dialerProxy": "fragmentws1",
@@ -337,7 +319,7 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#1 WORKER.99FREAKING.WS 2025-09-01"
+  "remarks": "#1 WORKER.99FREAKING.WS 2025-11-18"
 }
 ,
 {
@@ -423,23 +405,17 @@
   ],
   "outbounds": [
     {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false,
-        "xudpConcurrency": 8,
-        "xudpProxyUDP443": ""
-      },
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "104.18.26.90",
+            "address": "104.18.3.81",
             "port": 80,
             "users": [
               {
                 "encryption": "none",
                 "flow": "",
-                "id": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
                 "level": 8
               }
             ]
@@ -452,9 +428,9 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "soft98.ir"
           },
-          "path": "/GOv0JYr2cej45VCK?ed=2560"
+          "path": "/kxYOwquVAdvCKodY?ed=2560"
         },
         "sockopt": {
           "dialerProxy": "fragmentws2",
@@ -467,23 +443,17 @@
       "tag": "proxy1_frag2"
     },
     {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false,
-        "xudpConcurrency": 8,
-        "xudpProxyUDP443": ""
-      },
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "104.18.3.81",
+            "address": "216.24.57.250",
             "port": 80,
             "users": [
               {
                 "encryption": "none",
                 "flow": "",
-                "id": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
                 "level": 8
               }
             ]
@@ -496,9 +466,9 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "soft98.ir"
           },
-          "path": "/GOv0JYr2cej45VCK?ed=2560"
+          "path": "/kxYOwquVAdvCKodY?ed=2560"
         },
         "sockopt": {
           "dialerProxy": "fragmentws2",
@@ -511,23 +481,17 @@
       "tag": "proxy2_frag2"
     },
     {
-      "mux": {
-        "concurrency": -1,
-        "enabled": false,
-        "xudpConcurrency": 8,
-        "xudpProxyUDP443": ""
-      },
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "172.66.43.157",
+            "address": "104.18.12.15",
             "port": 80,
             "users": [
               {
                 "encryption": "none",
                 "flow": "",
-                "id": "b81280d6-b73c-4ee2-accc-6be1d97bf8e6",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
                 "level": 8
               }
             ]
@@ -540,9 +504,9 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "soft98.ir"
           },
-          "path": "/GOv0JYr2cej45VCK?ed=2560"
+          "path": "/kxYOwquVAdvCKodY?ed=2560"
         },
         "sockopt": {
           "dialerProxy": "fragmentws2",
@@ -678,6 +642,6 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#2 WORKER.99FREAKING.WS 2025-09-01"
+  "remarks": "#2 WORKER.99FREAKING.WS 2025-11-18"
 }
 ]
