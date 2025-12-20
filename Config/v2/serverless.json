@@ -31,7 +31,8 @@
 				"domain:.ir",
 				"full:www.speedtest.net",
 				"domain:tgju.org",
-				"domain:b2n.ir"
+				"domain:b2n.ir",
+				"full:challenges.cloudflare.com"
 			],
 			"skipFallback": true
 		},
@@ -97,7 +98,7 @@
 		  "domainStrategy": "ForceIP",
           "tcpKeepAliveIdle": 100,
           "happyEyeballs": {
-            "tryDelayMs": 100,
+            "tryDelayMs": 300,
             "prioritizeIPv6": true,
             "interleave": 2,
             "maxConcurrentTry": 16
@@ -112,7 +113,7 @@
         "sockopt": {
           "domainStrategy": "ForceIP",
           "happyEyeballs": {
-            "tryDelayMs": 100,
+            "tryDelayMs": 300,
             "prioritizeIPv6": true,
             "interleave": 2,
             "maxConcurrentTry": 16
@@ -177,7 +178,7 @@
     }          
 	],
 	"routing": {
-	  "domainStrategy": "AsIs",
+	  "domainStrategy": "IPOnDemand",
 	  "rules": [
 		{
 			"inboundTag": [
@@ -240,7 +241,10 @@
     	{"outboundTag": "fragment1",
 		 "network": "tcp",
 		 "type": "field"
-		}
+		},
+      {"outboundTag": "block",
+       "port": "0-65535"
+      }
 	  ]
 	},
   "remarks": "Serverless - tlshello"
@@ -277,7 +281,8 @@
 				"domain:.ir",
 				"full:www.speedtest.net",
 				"domain:tgju.org",
-				"domain:b2n.ir"
+				"domain:b2n.ir",
+				"full:challenges.cloudflare.com"
 			],
 			"skipFallback": true
 		},
@@ -327,30 +332,28 @@
 	  }
 	],
 	"outbounds": [
-	{
+ {
       "tag": "fragment1",
       "protocol": "freedom",
       "settings": {
         "fragment": {
-          "packets": "1-1",
-          "length": "1",
-          "interval": "1",
-          "maxSplit": "517"
+			"packets": "1-1",
+			"length": "1",
+			"interval": "1",
+			"maxSplit": "517"
         }
       },
       "streamSettings": {
         "sockopt": {
-          "tcpNoDelay": true,
-		  "domainStrategy": "ForceIP",
-          "tcpKeepAliveIdle": 100,
+          "domainStrategy": "ForceIP",
           "happyEyeballs": {
-            "tryDelayMs": 100,
+            "tryDelayMs": 300,
             "prioritizeIPv6": true,
             "interleave": 2,
             "maxConcurrentTry": 16
           }
         }
-      }            
+      }
     },
 	  {
 		"tag": "direct",
@@ -359,7 +362,7 @@
         "sockopt": {
           "domainStrategy": "ForceIP",
           "happyEyeballs": {
-            "tryDelayMs": 100,
+            "tryDelayMs": 300,
             "prioritizeIPv6": true,
             "interleave": 2,
             "maxConcurrentTry": 16
@@ -424,7 +427,7 @@
     }          
 	],
 	"routing": {
-	  "domainStrategy": "AsIs",
+	  "domainStrategy": "IPOnDemand",
 	  "rules": [
 		{
 			"inboundTag": [
@@ -487,7 +490,10 @@
     	{"outboundTag": "fragment1",
 		 "network": "tcp",
 		 "type": "field"
-		}
+		},
+      {"outboundTag": "block",
+       "port": "0-65535"
+      }
 	  ]
 	},
   "remarks": "Serverless - 1-1"
