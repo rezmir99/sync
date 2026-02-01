@@ -152,26 +152,32 @@
       "type": "selector",
       "outbounds": [
         "URL-TEST",
-        "1.TLS.worker1.99freaking.workers.dev",
-        "2.TLS.worker1.99freaking.workers.dev",
-        "3.TLS.worker1.99freaking.workers.dev",
-        "4.TLS.worker1.99freaking.workers.dev",
-        "5.TLS.worker1.99freaking.workers.dev",
-        "6.TLS.worker1.99freaking.workers.dev",
-        "7.TLS.worker1.99freaking.workers.dev"
+        "1.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "2.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "3.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "4.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "5.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "6.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "7.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "8.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "9.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "10.TLS.super-bush-5c2c.99freaking.workers.dev"
       ]
     },
     {
       "tag": "URL-TEST",
       "type": "urltest",
       "outbounds": [
-        "1.TLS.worker1.99freaking.workers.dev",
-        "2.TLS.worker1.99freaking.workers.dev",
-        "3.TLS.worker1.99freaking.workers.dev",
-        "4.TLS.worker1.99freaking.workers.dev",
-        "5.TLS.worker1.99freaking.workers.dev",
-        "6.TLS.worker1.99freaking.workers.dev",
-        "7.TLS.worker1.99freaking.workers.dev"
+        "1.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "2.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "3.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "4.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "5.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "6.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "7.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "8.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "9.TLS.super-bush-5c2c.99freaking.workers.dev",
+        "10.TLS.super-bush-5c2c.99freaking.workers.dev"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -183,8 +189,8 @@
     },
     {
       "type": "vless",
-      "tag": "1.TLS.worker1.99freaking.workers.dev",
-      "server": "172.66.43.157",
+      "tag": "1.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "mci.typhonemobile.ir",
       "server_port": 443,
       "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
       "flow": "",
@@ -192,7 +198,7 @@
       "tcp_fast_open": true,
       "tls": {
         "enabled": true,
-        "server_name": "worker1.99freaking.workers.dev",
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -205,10 +211,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/T6GZCrpmgdiiKXVr",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "worker1.99freaking.workers.dev"
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -216,8 +222,8 @@
     },
     {
       "type": "vless",
-      "tag": "2.TLS.worker1.99freaking.workers.dev",
-      "server": "172.67.73.216",
+      "tag": "2.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "mtn.typhonemobile.ir",
       "server_port": 443,
       "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
       "flow": "",
@@ -225,7 +231,7 @@
       "tcp_fast_open": true,
       "tls": {
         "enabled": true,
-        "server_name": "worker1.99freaking.workers.dev",
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -238,10 +244,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/T6GZCrpmgdiiKXVr",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "worker1.99freaking.workers.dev"
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -249,8 +255,8 @@
     },
     {
       "type": "vless",
-      "tag": "3.TLS.worker1.99freaking.workers.dev",
-      "server": "104.18.3.81",
+      "tag": "3.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "cdn4.eswap.ir",
       "server_port": 443,
       "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
       "flow": "",
@@ -258,7 +264,7 @@
       "tcp_fast_open": true,
       "tls": {
         "enabled": true,
-        "server_name": "worker1.99freaking.workers.dev",
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -271,10 +277,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/T6GZCrpmgdiiKXVr",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "worker1.99freaking.workers.dev"
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -282,8 +288,8 @@
     },
     {
       "type": "vless",
-      "tag": "4.TLS.worker1.99freaking.workers.dev",
-      "server": "104.18.13.15",
+      "tag": "4.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "mpc.mobayandeh.top",
       "server_port": 443,
       "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
       "flow": "",
@@ -291,7 +297,7 @@
       "tcp_fast_open": true,
       "tls": {
         "enabled": true,
-        "server_name": "worker1.99freaking.workers.dev",
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -304,10 +310,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/T6GZCrpmgdiiKXVr",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "worker1.99freaking.workers.dev"
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -315,8 +321,8 @@
     },
     {
       "type": "vless",
-      "tag": "5.TLS.worker1.99freaking.workers.dev",
-      "server": "104.18.22.19",
+      "tag": "5.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "mci.v2plus.ovh",
       "server_port": 443,
       "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
       "flow": "",
@@ -324,7 +330,7 @@
       "tcp_fast_open": true,
       "tls": {
         "enabled": true,
-        "server_name": "worker1.99freaking.workers.dev",
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -337,10 +343,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/T6GZCrpmgdiiKXVr",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "worker1.99freaking.workers.dev"
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -348,8 +354,8 @@
     },
     {
       "type": "vless",
-      "tag": "6.TLS.worker1.99freaking.workers.dev",
-      "server": "172.67.199.190",
+      "tag": "6.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "fox3.wizard2shop.org",
       "server_port": 443,
       "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
       "flow": "",
@@ -357,7 +363,7 @@
       "tcp_fast_open": true,
       "tls": {
         "enabled": true,
-        "server_name": "worker1.99freaking.workers.dev",
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -370,10 +376,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/T6GZCrpmgdiiKXVr",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "worker1.99freaking.workers.dev"
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"
@@ -381,8 +387,8 @@
     },
     {
       "type": "vless",
-      "tag": "7.TLS.worker1.99freaking.workers.dev",
-      "server": "104.25.150.10",
+      "tag": "7.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "mtn.v2plus.ovh",
       "server_port": 443,
       "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
       "flow": "",
@@ -390,7 +396,7 @@
       "tcp_fast_open": true,
       "tls": {
         "enabled": true,
-        "server_name": "worker1.99freaking.workers.dev",
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
         "insecure": false,
         "utls": {
           "enabled": true,
@@ -403,10 +409,109 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/T6GZCrpmgdiiKXVr",
         "headers": {
           "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-          "Host": "worker1.99freaking.workers.dev"
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "8.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "cdn.sjdpictures.ir",
+      "server_port": 443,
+      "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tcp_fast_open": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "alpn": [
+          "http/1.1"
+        ],
+        "record_fragment": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/T6GZCrpmgdiiKXVr",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "9.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "freeiran.lookanet.app",
+      "server_port": 443,
+      "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tcp_fast_open": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "alpn": [
+          "http/1.1"
+        ],
+        "record_fragment": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/T6GZCrpmgdiiKXVr",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
+        },
+        "max_early_data": 2560,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "10.TLS.super-bush-5c2c.99freaking.workers.dev",
+      "server": "dir2.serviceali.ir",
+      "server_port": 443,
+      "uuid": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+      "flow": "",
+      "packet_encoding": "xudp",
+      "tcp_fast_open": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "super-bush-5c2c.99freaking.workers.dev",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "alpn": [
+          "http/1.1"
+        ],
+        "record_fragment": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/T6GZCrpmgdiiKXVr",
+        "headers": {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+          "Host": "super-bush-5c2c.99freaking.workers.dev"
         },
         "max_early_data": 2560,
         "early_data_header_name": "Sec-WebSocket-Protocol"

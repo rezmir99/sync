@@ -22,10 +22,14 @@
         "domains": [
           "geosite:private",
           "full:cloudflare.com",
-          "domain:.ir",
-          "full:www.speedtest.net",
-          "domain:tgju.org",
-          "domain:b2n.ir"
+          "regexp:\\.ir$",
+          "domain:ipts.spancloud.sbs",
+          "domain:mkh.v2plus.ovh",
+          "domain:fox3.wizard2shop.org",
+          "domain:freeiran.lookanet.app",
+          "domain:mci.v2plus.ovh",
+          "domain:mpc.mobayandeh.top",
+          "domain:mtn.v2plus.ovh"
         ],
         "skipFallback": true
       },
@@ -86,7 +90,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 443,
             "users": [
               {
@@ -105,7 +109,7 @@
         "tlsSettings": {
           "allowInsecure": false,
           "fingerprint": "firefox",
-          "serverName": "worker1.99freaking.workers.dev",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
@@ -114,9 +118,9 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/T6GZCrpmgdiiKXVr?ed=2560"
         }
       },
       "tag": "proxy1"
@@ -126,7 +130,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 443,
             "users": [
               {
@@ -145,7 +149,7 @@
         "tlsSettings": {
           "allowInsecure": false,
           "fingerprint": "firefox",
-          "serverName": "worker1.99freaking.workers.dev",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
@@ -154,9 +158,9 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/T6GZCrpmgdiiKXVr?ed=2560"
         }
       },
       "tag": "proxy2"
@@ -476,7 +480,7 @@
       },
       {
         "domain": [
-          "domain:.ir"
+          "regexp:\\.ir$"
         ],
         "outboundTag": "direct",
         "type": "field"
@@ -544,7 +548,7 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#0 WORKER.99FREAKING.TLS.IPV6 2025-11-18"
+  "remarks": "#0 WORKER.99FREAKING.TLS.IPV6 2026-02-01"
 }
 ,
 {
@@ -571,10 +575,14 @@
         "domains": [
           "geosite:private",
           "full:cloudflare.com",
-          "domain:.ir",
-          "full:www.speedtest.net",
-          "domain:tgju.org",
-          "domain:b2n.ir"
+          "regexp:\\.ir$",
+          "domain:ipts.spancloud.sbs",
+          "domain:mkh.v2plus.ovh",
+          "domain:fox3.wizard2shop.org",
+          "domain:freeiran.lookanet.app",
+          "domain:mci.v2plus.ovh",
+          "domain:mpc.mobayandeh.top",
+          "domain:mtn.v2plus.ovh"
         ],
         "skipFallback": true
       },
@@ -639,7 +647,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 443,
             "users": [
               {
@@ -658,35 +666,30 @@
         "tlsSettings": {
           "allowInsecure": false,
           "fingerprint": "firefox",
-          "serverName": "worker1.99freaking.workers.dev",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "echConfigList": "udp://1.1.1.1:53",
+          "echForceQuery": "full"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/?ed=2560"
-        },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
+          "path": "/T6GZCrpmgdiiKXVr?ed=2560"
         }
       },
-      "tag": "proxy1_frag1"
+      "tag": "proxy1"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 443,
             "users": [
               {
@@ -705,48 +708,23 @@
         "tlsSettings": {
           "allowInsecure": false,
           "fingerprint": "firefox",
-          "serverName": "worker1.99freaking.workers.dev",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "echConfigList": "udp://1.1.1.1:53",
+          "echForceQuery": "full"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker1.99freaking.workers.dev"
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/?ed=2560"
-        },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
+          "path": "/T6GZCrpmgdiiKXVr?ed=2560"
         }
       },
-      "tag": "proxy2_frag1"
-    },
-    {
-      "tag": "fragment1",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIPv4v6",
-        "fragment": {
-          "packets": "tlshello",
-          "length": "1",
-          "interval": "0"
-        }
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "",
-        "sockopt": {
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100
-        }
-      }
+      "tag": "proxy2"
     },
     {
       "tag": "direct",
@@ -1049,7 +1027,7 @@
         "inboundTag": [
           "frag-dns"
         ],
-        "outboundTag": "fragment1",
+        "outboundTag": "fragmente",
         "type": "field"
       },
       {
@@ -1070,7 +1048,7 @@
       },
       {
         "domain": [
-          "domain:.ir"
+          "regexp:\\.ir$"
         ],
         "outboundTag": "direct",
         "type": "field"
@@ -1138,6 +1116,6 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#1 WORKER.99FREAKING.TLS.IPV6 2025-11-18"
+  "remarks": "#E WORKER.99FREAKING.TLS.IPV6 2026-02-01"
 }
 ]
