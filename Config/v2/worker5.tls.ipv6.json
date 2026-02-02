@@ -23,16 +23,12 @@
           "geosite:private",
           "full:cloudflare.com",
           "regexp:\\.ir$",
-          "domain:ipts.spancloud.sbs",
           "domain:mkh.v2plus.ovh",
-          "domain:fox3.wizard2shop.org",
           "domain:freeiran.lookanet.app",
           "domain:mci.v2plus.ovh",
           "domain:mpc.mobayandeh.top",
           "domain:mtn.v2plus.ovh",
-          "domain:cdn.sjdpictures.ir",
-          "domain:cdn4.eswap.ir",
-          "domain:dir2.serviceali.ir"
+          "domain:ip.ali.lat"
         ],
         "skipFallback": true
       },
@@ -93,7 +89,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 443,
             "users": [
               {
@@ -123,7 +119,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.hemecap538.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/5qirAYuU5JJkWzix?ed=2560"
         }
       },
       "tag": "proxy1"
@@ -163,7 +159,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.hemecap538.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/5qirAYuU5JJkWzix?ed=2560"
         }
       },
       "tag": "proxy2"
@@ -173,7 +169,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 443,
             "users": [
               {
@@ -203,7 +199,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.nojisoj4574.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/O4xzRTdEa8RrQxKY?ed=2560"
         }
       },
       "tag": "proxy3"
@@ -213,7 +209,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 443,
             "users": [
               {
@@ -243,7 +239,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.nojisoj4574.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/O4xzRTdEa8RrQxKY?ed=2560"
         }
       },
       "tag": "proxy4"
@@ -253,7 +249,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 443,
             "users": [
               {
@@ -283,7 +279,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.faniw6556.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/5UIaw5ipZ1d37MwV?ed=2560"
         }
       },
       "tag": "proxy5"
@@ -323,7 +319,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.faniw6556.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/5UIaw5ipZ1d37MwV?ed=2560"
         }
       },
       "tag": "proxy6"
@@ -333,7 +329,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 443,
             "users": [
               {
@@ -363,7 +359,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.najefe48575.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/pf5UXOl8hMnuW1cm?ed=2560"
         }
       },
       "tag": "proxy7"
@@ -373,7 +369,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 443,
             "users": [
               {
@@ -403,7 +399,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.najefe48575.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/pf5UXOl8hMnuW1cm?ed=2560"
         }
       },
       "tag": "proxy8"
@@ -413,7 +409,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 443,
             "users": [
               {
@@ -443,7 +439,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.fotatoc62553.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/FM7jcj1Nb8a7nzXY?ed=2560"
         }
       },
       "tag": "proxy9"
@@ -453,7 +449,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 443,
             "users": [
               {
@@ -483,7 +479,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.fotatoc62553.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/FM7jcj1Nb8a7nzXY?ed=2560"
         }
       },
       "tag": "proxy10"
@@ -493,7 +489,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 443,
             "users": [
               {
@@ -523,7 +519,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.cidayo573832.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/xj0HtgQaxZZBx6ed?ed=2560"
         }
       },
       "tag": "proxy11"
@@ -533,7 +529,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 443,
             "users": [
               {
@@ -563,50 +559,10 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.cidayo573832.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/xj0HtgQaxZZBx6ed?ed=2560"
         }
       },
       "tag": "proxy12"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "[2a06:98c1:3120::aa]",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "e28598a6-95b6-45b8-b503-a98f675ad7b2",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "worker3.mocica6862.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.mocica6862.workers.dev"
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy13"
     },
     {
       "protocol": "vless",
@@ -643,23 +599,23 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.mocica6862.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/GSs8L9HOtxSb4nkd?ed=2560"
         }
       },
-      "tag": "proxy14"
+      "tag": "proxy13"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 443,
             "users": [
               {
                 "encryption": "none",
                 "flow": "",
-                "id": "6ebbe0fc-8596-4331-813f-b7752ddbc2a1",
+                "id": "e28598a6-95b6-45b8-b503-a98f675ad7b2",
                 "level": 8
               }
             ]
@@ -672,7 +628,7 @@
         "tlsSettings": {
           "allowInsecure": false,
           "fingerprint": "firefox",
-          "serverName": "worker3.bomavaf5785.workers.dev",
+          "serverName": "worker3.mocica6862.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
@@ -681,12 +637,12 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.bomavaf5785.workers.dev"
+            "Host": "worker3.mocica6862.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/GSs8L9HOtxSb4nkd?ed=2560"
         }
       },
-      "tag": "proxy15"
+      "tag": "proxy14"
     },
     {
       "protocol": "vless",
@@ -723,130 +679,10 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.bomavaf5785.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/7SJbwTwSwE3n9ppg?ed=2560"
         }
       },
-      "tag": "proxy16"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "[2a06:98c1:3120::aa]",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "975cabcb-6608-40f5-be78-755f06f04039",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "worker3.daleh43175.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.daleh43175.workers.dev"
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy17"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "[2a06:98c1:3121::3]",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "975cabcb-6608-40f5-be78-755f06f04039",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "worker3.daleh43175.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.daleh43175.workers.dev"
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy18"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "[2a06:98c1:3121::3]",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "9a208b07-8a83-419d-9798-59cd872c06df",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "worker3.vayebak881f.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.vayebak881f.workers.dev"
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy19"
+      "tag": "proxy15"
     },
     {
       "protocol": "vless",
@@ -859,6 +695,126 @@
               {
                 "encryption": "none",
                 "flow": "",
+                "id": "6ebbe0fc-8596-4331-813f-b7752ddbc2a1",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "firefox",
+          "serverName": "worker3.bomavaf5785.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ]
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "worker3.bomavaf5785.workers.dev"
+          },
+          "path": "/7SJbwTwSwE3n9ppg?ed=2560"
+        }
+      },
+      "tag": "proxy16"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "[2a06:98c1:3121::3]",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "975cabcb-6608-40f5-be78-755f06f04039",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "firefox",
+          "serverName": "worker3.daleh43175.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ]
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "worker3.daleh43175.workers.dev"
+          },
+          "path": "/xGncKbXj06rnidfJ?ed=2560"
+        }
+      },
+      "tag": "proxy17"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "[2a06:98c1:3120::6]",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "975cabcb-6608-40f5-be78-755f06f04039",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "firefox",
+          "serverName": "worker3.daleh43175.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ]
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "worker3.daleh43175.workers.dev"
+          },
+          "path": "/xGncKbXj06rnidfJ?ed=2560"
+        }
+      },
+      "tag": "proxy18"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "[2a06:98c1:3120::6]",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
                 "id": "9a208b07-8a83-419d-9798-59cd872c06df",
                 "level": 8
               }
@@ -883,7 +839,47 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.vayebak881f.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/JfuPVOyPVvu3FVF8?ed=2560"
+        }
+      },
+      "tag": "proxy19"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "[2a06:98c1:3121::3]",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "9a208b07-8a83-419d-9798-59cd872c06df",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "firefox",
+          "serverName": "worker3.vayebak881f.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ]
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "worker3.vayebak881f.workers.dev"
+          },
+          "path": "/JfuPVOyPVvu3FVF8?ed=2560"
         }
       },
       "tag": "proxy20"
@@ -1271,7 +1267,7 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#0 WORKER5.TLS.IPV6 2026-01-31"
+  "remarks": "#0 WORKER5.TLS.IPV6 2026-02-02"
 }
 ,
 {
@@ -1299,16 +1295,12 @@
           "geosite:private",
           "full:cloudflare.com",
           "regexp:\\.ir$",
-          "domain:ipts.spancloud.sbs",
           "domain:mkh.v2plus.ovh",
-          "domain:fox3.wizard2shop.org",
           "domain:freeiran.lookanet.app",
           "domain:mci.v2plus.ovh",
           "domain:mpc.mobayandeh.top",
           "domain:mtn.v2plus.ovh",
-          "domain:cdn.sjdpictures.ir",
-          "domain:cdn4.eswap.ir",
-          "domain:dir2.serviceali.ir"
+          "domain:ip.ali.lat"
         ],
         "skipFallback": true
       },
@@ -1373,7 +1365,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::5d08]",
             "port": 443,
             "users": [
               {
@@ -1405,7 +1397,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.hemecap538.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/5qirAYuU5JJkWzix?ed=2560"
         }
       },
       "tag": "proxy1"
@@ -1447,7 +1439,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.hemecap538.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/5qirAYuU5JJkWzix?ed=2560"
         }
       },
       "tag": "proxy2"
@@ -1457,7 +1449,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::5d08]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 443,
             "users": [
               {
@@ -1489,7 +1481,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.nojisoj4574.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/O4xzRTdEa8RrQxKY?ed=2560"
         }
       },
       "tag": "proxy3"
@@ -1499,7 +1491,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 443,
             "users": [
               {
@@ -1531,7 +1523,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.nojisoj4574.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/O4xzRTdEa8RrQxKY?ed=2560"
         }
       },
       "tag": "proxy4"
@@ -1541,7 +1533,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 443,
             "users": [
               {
@@ -1573,7 +1565,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.faniw6556.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/5UIaw5ipZ1d37MwV?ed=2560"
         }
       },
       "tag": "proxy5"
@@ -1615,7 +1607,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.faniw6556.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/5UIaw5ipZ1d37MwV?ed=2560"
         }
       },
       "tag": "proxy6"
@@ -1625,7 +1617,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 443,
             "users": [
               {
@@ -1657,7 +1649,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.najefe48575.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/pf5UXOl8hMnuW1cm?ed=2560"
         }
       },
       "tag": "proxy7"
@@ -1667,7 +1659,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 443,
             "users": [
               {
@@ -1699,7 +1691,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.najefe48575.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/pf5UXOl8hMnuW1cm?ed=2560"
         }
       },
       "tag": "proxy8"
@@ -1709,7 +1701,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::3]",
+            "address": "[2a06:98c1:3121::3]",
             "port": 443,
             "users": [
               {
@@ -1741,7 +1733,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.fotatoc62553.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/FM7jcj1Nb8a7nzXY?ed=2560"
         }
       },
       "tag": "proxy9"
@@ -1751,7 +1743,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3121::3]",
+            "address": "[2a06:98c1:3120::6]",
             "port": 443,
             "users": [
               {
@@ -1783,7 +1775,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.fotatoc62553.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/FM7jcj1Nb8a7nzXY?ed=2560"
         }
       },
       "tag": "proxy10"
@@ -1793,7 +1785,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::aa]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 443,
             "users": [
               {
@@ -1825,7 +1817,7 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.cidayo573832.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/xj0HtgQaxZZBx6ed?ed=2560"
         }
       },
       "tag": "proxy11"
@@ -1835,7 +1827,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::aa]",
             "port": 443,
             "users": [
               {
@@ -1867,52 +1859,10 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.cidayo573832.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/xj0HtgQaxZZBx6ed?ed=2560"
         }
       },
       "tag": "proxy12"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "[2a06:98c1:3120::aa]",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "e28598a6-95b6-45b8-b503-a98f675ad7b2",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "worker3.mocica6862.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.mocica6862.workers.dev"
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy13"
     },
     {
       "protocol": "vless",
@@ -1951,23 +1901,23 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.mocica6862.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/GSs8L9HOtxSb4nkd?ed=2560"
         }
       },
-      "tag": "proxy14"
+      "tag": "proxy13"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "[2a06:98c1:3120::6]",
+            "address": "[2a06:98c1:3120::3]",
             "port": 443,
             "users": [
               {
                 "encryption": "none",
                 "flow": "",
-                "id": "6ebbe0fc-8596-4331-813f-b7752ddbc2a1",
+                "id": "e28598a6-95b6-45b8-b503-a98f675ad7b2",
                 "level": 8
               }
             ]
@@ -1980,7 +1930,7 @@
         "tlsSettings": {
           "allowInsecure": false,
           "fingerprint": "firefox",
-          "serverName": "worker3.bomavaf5785.workers.dev",
+          "serverName": "worker3.mocica6862.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
@@ -1991,12 +1941,12 @@
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.bomavaf5785.workers.dev"
+            "Host": "worker3.mocica6862.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/GSs8L9HOtxSb4nkd?ed=2560"
         }
       },
-      "tag": "proxy15"
+      "tag": "proxy14"
     },
     {
       "protocol": "vless",
@@ -2035,136 +1985,10 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.bomavaf5785.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/7SJbwTwSwE3n9ppg?ed=2560"
         }
       },
-      "tag": "proxy16"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "[2a06:98c1:3120::aa]",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "975cabcb-6608-40f5-be78-755f06f04039",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "worker3.daleh43175.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.daleh43175.workers.dev"
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy17"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "[2a06:98c1:3121::3]",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "975cabcb-6608-40f5-be78-755f06f04039",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "worker3.daleh43175.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.daleh43175.workers.dev"
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy18"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "[2a06:98c1:3121::3]",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "9a208b07-8a83-419d-9798-59cd872c06df",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "worker3.vayebak881f.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "worker3.vayebak881f.workers.dev"
-          },
-          "path": "/?ed=2560"
-        }
-      },
-      "tag": "proxy19"
+      "tag": "proxy15"
     },
     {
       "protocol": "vless",
@@ -2177,6 +2001,132 @@
               {
                 "encryption": "none",
                 "flow": "",
+                "id": "6ebbe0fc-8596-4331-813f-b7752ddbc2a1",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "firefox",
+          "serverName": "worker3.bomavaf5785.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "echConfigList": "udp://1.1.1.1:53",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "worker3.bomavaf5785.workers.dev"
+          },
+          "path": "/7SJbwTwSwE3n9ppg?ed=2560"
+        }
+      },
+      "tag": "proxy16"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "[2a06:98c1:3121::3]",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "975cabcb-6608-40f5-be78-755f06f04039",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "firefox",
+          "serverName": "worker3.daleh43175.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "echConfigList": "udp://1.1.1.1:53",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "worker3.daleh43175.workers.dev"
+          },
+          "path": "/xGncKbXj06rnidfJ?ed=2560"
+        }
+      },
+      "tag": "proxy17"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "[2a06:98c1:3120::6]",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "975cabcb-6608-40f5-be78-755f06f04039",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "firefox",
+          "serverName": "worker3.daleh43175.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "echConfigList": "udp://1.1.1.1:53",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "worker3.daleh43175.workers.dev"
+          },
+          "path": "/xGncKbXj06rnidfJ?ed=2560"
+        }
+      },
+      "tag": "proxy18"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "[2a06:98c1:3120::6]",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
                 "id": "9a208b07-8a83-419d-9798-59cd872c06df",
                 "level": 8
               }
@@ -2203,7 +2153,49 @@
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "worker3.vayebak881f.workers.dev"
           },
-          "path": "/?ed=2560"
+          "path": "/JfuPVOyPVvu3FVF8?ed=2560"
+        }
+      },
+      "tag": "proxy19"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "[2a06:98c1:3121::3]",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "9a208b07-8a83-419d-9798-59cd872c06df",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "firefox",
+          "serverName": "worker3.vayebak881f.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "echConfigList": "udp://1.1.1.1:53",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "worker3.vayebak881f.workers.dev"
+          },
+          "path": "/JfuPVOyPVvu3FVF8?ed=2560"
         }
       },
       "tag": "proxy20"
@@ -2598,6 +2590,6 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#E WORKER5.TLS.IPV6 2026-01-31"
+  "remarks": "#E WORKER5.TLS.IPV6 2026-02-02"
 }
 ]
