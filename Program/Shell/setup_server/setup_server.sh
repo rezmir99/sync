@@ -1,5 +1,5 @@
 #!/bin/sh
-PERM_GIT_PATH=$(echo "$(dirname "$0")" | rev | cut -d '/' -f 5- | rev)
+PERM_GIT_PATH=$(echo "${0%/*}" | rev | cut -d '/' -f 5- | rev)
 SERVER_PROFILE_PATH="$PERM_GIT_PATH/ProgramData/server_profile.sh"
 
 # make profile
