@@ -22,7 +22,7 @@ cp -af "/root/paqet/." "/root/paqet_backup/$paqet_version_old/"
 # update bin & cfg
 rm -rf /root/paqet
 mkdir -p /root/paqet
-tar xzf paqet-linux-amd64-$paqet_version.tar.gz -C /root/paqet/
+tar xzf "$PERM_GIT_PATH/Program/Linux/paqet/paqet-linux-amd64-$paqet_version.tar.gz" -C /root/paqet/
 cp -af "$config_path" /root/paqet/config.yaml
 chmod 0755 /root/paqet/paqet_linux_amd64
 
