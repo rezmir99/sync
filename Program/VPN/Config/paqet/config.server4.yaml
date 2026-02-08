@@ -1,4 +1,4 @@
-#v1.0.0-alpha.14
+#v1.0.0-alpha.15
 # paqet Client Configuration Example
 # Role must be explicitly set
 role: "client"
@@ -30,9 +30,9 @@ network:
     router_mac: "02:50:56:56:44:52"         # CHANGE ME: Gateway/router MAC address
 
   # IPv6 configuration (optional)
-  ipv6:
-    addr: "[2001:db8::1]:0"                 # CHANGE ME: Local IPv6 address and port (optional)
-    router_mac: "aa:bb:cc:dd:ee:ff"         # CHANGE ME: Gateway/router MAC address for IPv6
+  # ipv6:
+  #   addr: "[2001:db8::1]:0"                 # CHANGE ME: Local IPv6 address and port (optional)
+  #   router_mac: "aa:bb:cc:dd:ee:ff"         # CHANGE ME: Gateway/router MAC address for IPv6
 
   tcp:
     local_flag: ["PA"]                      # Local TCP flags (Push+Ack default)
