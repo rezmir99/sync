@@ -5,6 +5,11 @@
 find /usr/local/bin -xtype l -delete
 find /usr/local/lib -xtype l -delete
 
+# pull 
+cd $PERM_GIT_PATH
+git pull
+cd
+
 # SERVER PROFILE
 cp -af "$PERM_GIT_PATH/ProgramData/server_profile.sh" "$HOME/server_profile.sh"
 
