@@ -1,6 +1,8 @@
-#!/bin/sh
-PERM_GIT_PATH=$(echo "${0%/*}" | rev | cut -d '/' -f 5- | rev)
+#!/bin/bash
+PERM_GIT_PATH=$(echo "${0%/*}" | rev | cut -d '/' -f 4- | rev)
 SERVER_PROFILE_PATH="$PERM_GIT_PATH/ProgramData/server_profile.sh"
+
+cd $HOME
 
 # make profile
 cp -af "$SERVER_PROFILE_PATH" "$HOME/server_profile.sh"
