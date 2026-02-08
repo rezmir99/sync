@@ -5,10 +5,10 @@ today=$(date +"%Y-%m-%d-%H%M%S")
 
 server=$1
 
-config_path="$PERM_GIT_PATH/Program/VPN/Config/paqet/config.$server1.yaml"
+config_path="$PERM_GIT_PATH/Program/VPN/Config/paqet/config.$server.yaml"
 bin_path="$PERM_GIT_PATH/Program/Linux/paqet"
 
-[ -f "$config_path" ] || { echo 'error: wrong server config path'; exit 1; }
+[ -f "$config_path" ] || { echo 'error: paqet_update: wrong server config path'; exit 1; }
 
 # find version
 paqet_version=$(head -n 1 "$config_path" | sed 's/^#//')

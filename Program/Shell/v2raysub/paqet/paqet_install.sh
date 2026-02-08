@@ -6,7 +6,7 @@ server=$1
 config_path="$PERM_GIT_PATH/Program/VPN/Config/paqet/config.$server.yaml"
 bin_path="$PERM_GIT_PATH/Program/Linux/paqet"
 
-[ -f "$config_path" ] || { echo 'error: wrong server config path'; exit 1; }
+[ -f "$config_path" ] || { echo 'error: paqet_install: wrong server config path'; exit 1; }
 mkdir -p /root/paqet
 
 # chk role
