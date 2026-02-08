@@ -1,0 +1,11 @@
+[Unit]
+Description=Restart mybinary every 60 minutes
+
+[Timer]
+OnBootSec=60min
+OnUnitActiveSec=60min
+Unit=paqet_restart.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target
