@@ -14,10 +14,12 @@ bin_path="$PERM_GIT_PATH/Program/Linux/paqet"
 paqet_version=$(head -n 1 "$config_path" | sed 's/^#//')
 
 # make backup
-paqet_version_old=$(head -n 1 "/root/paqet/config.yaml" | sed 's/^#//')
-echo "backing up /root/paqet to /root/paqet_backup/$paqet_version_old"
-mkdir -p "/root/paqet_backup/$paqet_version_old"
-cp -af "/root/paqet/." "/root/paqet_backup/$paqet_version_old/"
+if [ -s "/root/paqet/config.yaml" ]; then
+    paqet_version_old=$(head -n 1 "/root/paqet/config.yaml" | sed 's/^#//')
+    echo "backing up /root/paqet to /root/paqet_backup/$paqet_version_old"
+    mkdir -p "/root/paqet_backup/$paqet_version_old"
+    cp -af "/root/paqet/." "/root/paqet_backup/$paqet_version_old/"
+fi
 
 # update bin & cfg
 rm -rf /root/paqet

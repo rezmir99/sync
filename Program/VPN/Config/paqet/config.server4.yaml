@@ -44,7 +44,7 @@ network:
 
 # Server connection settings
 server:
-  addr: "91.98.128.91:9999"  # CHANGE ME: paqet server address and port
+  addr: "91.107.145.158:9999"  # CHANGE ME: paqet server address and port
 
 # Transport protocol configuration
 transport:
