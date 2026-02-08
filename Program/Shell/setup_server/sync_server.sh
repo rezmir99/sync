@@ -7,7 +7,7 @@ find /usr/local/lib -xtype l -delete
 
 # pull 
 cd $PERM_GIT_PATH
-git pull
+git pull || { evho 'error: can pull'; exit 1; }
 cd
 
 # SERVER PROFILE
