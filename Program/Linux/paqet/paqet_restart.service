@@ -6,3 +6,6 @@ Type=simple
 ExecStart=/bin/systemctl restart paqet.service
 # optional: add a small delay if you want breathing room
 #ExecStartPre=/bin/sleep 1
+
+[Install]
+WantedBy=multi-user.target
