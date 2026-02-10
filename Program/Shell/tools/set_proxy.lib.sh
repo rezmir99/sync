@@ -17,12 +17,16 @@ export HTTPS_PROXY="http://${HOSTIP}:$1"
 export https_proxy="http://${HOSTIP}:$1"
 export NO_PROXY='localhost,127.0.0.1,::1'
 export no_proxy='localhost,127.0.0.1,::1'
+
+export ALL_PROXY="socks5h://${HOSTIP}:$1"
+export all_proxy="socks5h://${HOSTIP}:$1"
+
 git config --global http.proxy "http://${HOSTIP}:$1"
 set_proxy_apt $1
 }
 
 clear_proxy(){
-unset http_proxy HTTPS_PROXY no_proxy NO_PROXY https_proxy HTTP_PROXY
+unset http_proxy HTTPS_PROXY no_proxy NO_PROXY https_proxy HTTP_PROXY ALL_PROXY all_proxy
 git config --global --unset http.proxy
 clear_proxy_apt
 }

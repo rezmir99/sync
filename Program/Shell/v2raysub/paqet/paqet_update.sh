@@ -10,6 +10,13 @@ bin_path="$PERM_GIT_PATH/Program/Linux/paqet"
 
 [ -f "$config_path" ] || { echo 'error: paqet_update: wrong server config path'; exit 1; }
 
+# chk role
+if grep -q '^role: "client"' $config_path; then
+    role=client
+else
+    role=server
+fi
+
 # find version
 paqet_version=$(head -n 1 "$config_path" | sed 's/^#//')
 
@@ -27,6 +34,16 @@ mkdir -p /root/paqet
 tar xzf "$PERM_GIT_PATH/Program/Linux/paqet/paqet-linux-amd64-$paqet_version.tar.gz" -C /root/paqet/
 cp -af "$config_path" /root/paqet/config.yaml
 chmod 0755 /root/paqet/paqet_linux_amd64
+
+# cp firewall rules
+if [ "$role" =  server ]; then
+    cp -f "${config_path%/*}/firewall.sh" "/root/paqet/firewall.sh"
+    chmod 755 "/root/paqet/firewall.sh"
+    sudo cat "$bin_path/paqet_firewall.service" > /etc/systemd/system/paqet_firewall.service
+fi
+
+# reload
+sudo systemctl daemon-reload
 
 # restart
 systemctl restart paqet.service

@@ -1,3 +1,4 @@
+#!/bin/bash
 # Replace <PORT> with your server listen port (e.g., 9999)
 port=9999
 
