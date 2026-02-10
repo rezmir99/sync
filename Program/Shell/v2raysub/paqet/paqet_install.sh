@@ -19,3 +19,6 @@ sudo systemctl daemon-reload
 
 # update paqet
 paqet_update -b $server
+
+# start
+paqet_start
