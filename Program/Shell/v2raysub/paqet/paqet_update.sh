@@ -27,10 +27,10 @@ else
     role=server
 fi
 
-# find version
-paqet_version=$(head -n 1 "$config_path" | sed 's/^#//')
-
 if [ "$bin" = true ]; then
+    # find version
+    paqet_version=$(head -n 1 "$config_path" | sed 's/^#//')
+
     # make backup
     if [ -s "/root/paqet/config.yaml" ]; then
         paqet_version_old=$(head -n 1 "/root/paqet/config.yaml" | sed 's/^#//')
@@ -61,7 +61,5 @@ else
     cp -af "$config_path" /root/paqet/config.yaml
 fi
 
-
 # restart
 systemctl restart paqet.service
-
