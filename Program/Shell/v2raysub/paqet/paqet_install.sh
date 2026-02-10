@@ -14,5 +14,8 @@ sudo cat "$bin_path/paqet.service" > /etc/systemd/system/paqet.service
 sudo cat "$bin_path/paqet_restart.service" > /etc/systemd/system/paqet_restart.service
 sudo cat "$bin_path/paqet_restart.timer" > /etc/systemd/system/paqet_restart.timer
 
+# reload
+sudo systemctl daemon-reload
+
 # update paqet
-paqet_update $server
+paqet_update -b $server
