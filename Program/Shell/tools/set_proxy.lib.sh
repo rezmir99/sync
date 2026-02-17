@@ -8,7 +8,7 @@
 # fi
 
 export HOSTIP='127.0.0.1'
-export PROXY_TYPE=socks5h
+export PROXY_TYPE=http
 
 set_proxy_type() {
 if [ "$1" = -s ]; then
