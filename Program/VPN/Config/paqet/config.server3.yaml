@@ -36,7 +36,7 @@ network:
 # Transport protocol configuration
 transport:
   protocol: "kcp"  # Transport protocol (currently only "kcp" supported)
-  conn: 64          # Number of connections (1-256, default: 1)
+  conn: 128          # Number of connections (1-256, default: 1)
 
   # KCP protocol settings
   kcp:
