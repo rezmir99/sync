@@ -1,48 +1,51 @@
-{
-  "remarks": "ðŸ‡«ðŸ‡® Finland",
-  "note": "Ø§ÛŒÙ† Ù¾Ø±ÙˆØªÚ©Ù„ Ú©Ù…ÛŒ Ú©Ù†Ø¯ Ø§Ø³Øª ÙˆÙ„ÛŒ Ù…ØªØµÙ„ Ù…ÛŒâ€ŒØ´ÙˆØ¯.",
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 7891,
-      "protocol": "socks",
-      "settings": {
-        "auth": "noauth",
-        "udp": true
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "xdns-out",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "2.188.21.20",
-            "port": 53,
-            "users": [
-              {
-                "id": "5aad8b1c-515d-4e19-b12d-6192e20e6c76",
-                "encryption": "none"
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "kcp",
-        "kcpSettings": {
-          "mtu": 60,
-          "tti": 100,
-          "uplinkCapacity": 0,
-          "downlinkCapacity": 0,
-          "congestion": true
-        },
-        "finalmask": {
-          "udp": [{ "type": "xdns", "settings": { "domain": "s.typhone1.site" } }]
-        }
-      }
-    }
-}
-
+[
+  {
+    "remarks": "Germany",
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 7891,
+        "protocol": "socks",
+        "settings": { "auth": "noauth", "udp": true }
+      }
+    ],
+    "outbounds": [
+      {
+        "tag": "xdns-out",
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "37.32.2.4",
+              "port": 53,
+              "users": [
+                {
+                  "id": "5aad8b1c-515d-4e19-b12d-6192e20e6c76",
+                  "encryption": "none"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "kcp",
+          "kcpSettings": {
+            "mtu": 60,
+            "tti": 100,
+            "uplinkCapacity": 0,
+            "downlinkCapacity": 0,
+            "congestion": true
+          },
+          "finalmask": {
+            "udp": [
+              {
+                "type": "xdns",
+                "settings": { "domain": "s.typhone1.site" }
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+]
