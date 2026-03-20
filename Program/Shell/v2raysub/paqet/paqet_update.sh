@@ -4,7 +4,7 @@
 today=$(date +"%Y-%m-%d-%H%M%S")
 
 unset bin
-OPTIND=1; while getopts :dcn opt; do
+OPTIND=1; while getopts :b opt; do
 	case "$opt" in
         b) bin=true;;
         \?) printf 'Error: Unknown option "--%s"\n' "$OPTARG" 1>&2; exit 1;;
