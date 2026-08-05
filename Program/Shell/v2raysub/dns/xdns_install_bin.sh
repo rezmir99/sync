@@ -3,8 +3,8 @@
 
 mkdir -p /root/xray-core
 
-bin_name="xray-knife"
-bin_link='https://github.com/lilendian0x00/xray-knife/releases/latest/download/Xray-knife-android-arm64-v8a.zip'
+bin_name="xray"
+bin_link='https://github.com//XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip'
 bin_zip=$(basename -- "$bin_link")
 cd /root/xray-core
 rm -f "$bin_zip"
@@ -12,4 +12,5 @@ wget --no-verbose $bin_link && echo bin updated  || echo bin not updated
 unzip -o "$bin_zip"
 chmod +x "$bin_name"
 
-systemctl restart xdns
+systemctl restart xdns 2>/dev/null
+

@@ -13,6 +13,9 @@ mkdir -p xdns
 sudo cat "$bin_path/firewall.sh" > /root/xdns/firewall.sh
 chmod 0755 /root/xdns/firewall.sh
 
+# install bin
+xdns_install_bin
+
 # enable on boot
 sudo systemctl enable xdns.service
 sudo systemctl enable --now xdns_restart.timer
