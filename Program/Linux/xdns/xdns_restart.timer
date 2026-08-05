@@ -1,0 +1,11 @@
+[Unit]
+Description=Restart mybinary every 60 minutes
+
+[Timer]
+OnBootSec=360min
+OnUnitActiveSec=360min
+Unit=xdns_restart.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target
