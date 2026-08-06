@@ -10,7 +10,6 @@ cd /root/xray-core
 rm -f "$bin_zip"
 wget --no-verbose $bin_link && echo bin updated  || echo bin not updated
 unzip -o "$bin_zip"
-chmod +x "$bin_name"
+chmod 755 "$bin_name"
 
 systemctl restart xdns 2>/dev/null
-

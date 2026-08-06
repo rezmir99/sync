@@ -9,7 +9,7 @@ sudo cat "$bin_path/xdns_firewall.service" >  /etc/systemd/system/xdns_firewall.
 
 sudo systemctl daemon-reload
 
-mkdir -p xdns
+mkdir -p /root/xdns
 sudo cat "$bin_path/firewall.sh" > /root/xdns/firewall.sh
 chmod 0755 /root/xdns/firewall.sh
 
