@@ -8,11 +8,21 @@
   },
   "dns": {
     "hosts": {
+      "one.one.one.one": [
+        "1.1.1.1",
+        "1.0.0.1",
+        "2606:4700:4700::1111",
+        "2606:4700:4700::1001"
+      ],
       "dns.google": [
         "8.8.8.8",
         "8.8.4.4",
         "2001:4860:4860::8888",
         "2001:4860:4860::8844"
+      ],
+      "dns.digitalsize.net": [
+        "94.130.135.203",
+        "2a01:4f8:13b:3407::face"
       ]
     },
     "servers": [
@@ -23,22 +33,22 @@
           "geosite:private",
           "full:cloudflare.com",
           "regexp:\\.ir$",
-          "domain:ipts.spancloud.sbs",
-          "domain:mkh.v2plus.ovh",
-          "domain:fox3.wizard2shop.org",
-          "domain:freeiran.lookanet.app",
-          "domain:mci.v2plus.ovh",
-          "domain:mpc.mobayandeh.top",
-          "domain:mtn.v2plus.ovh"
+          "domain:cdnjs.com",
+          "domain:chatgpt.com",
+          "domain:laravel.com",
+          "domain:tgju.org",
+          "domain:www.hcaptcha.com"
         ],
         "skipFallback": true
       },
       {
-        "address": "https://dns.google/dns-query",
-        "tag": "remote-dns"
+        "address": "https://dns.google/dns-query"
       },
-      "https+local://dns.digitalsize.net/dns-query"
+      {
+        "address": "https://one.one.one.one/dns-query"
+      }
     ],
+    "tag": "remote-dns",
     "queryStrategy": "UseIP"
   },
   "fakedns": [
@@ -63,6 +73,7 @@
         "destOverride": [
           "http",
           "tls",
+          "quic",
           "fakedns"
         ]
       },
@@ -71,17 +82,6 @@
         "udp": true,
         "userLevel": 8
       }
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10853,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "1.1.1.1",
-        "network": "tcp,udp",
-        "port": 53
-      },
-      "tag": "dns-in"
     }
   ],
   "outbounds": [
@@ -90,7 +90,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "mci.typhonemobile.ir",
+            "address": "laravel.com",
             "port": 443,
             "users": [
               {
@@ -108,19 +108,20 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         }
       },
       "tag": "proxy1"
@@ -130,7 +131,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "mtn.typhonemobile.ir",
+            "address": "www.hcaptcha.com",
             "port": 443,
             "users": [
               {
@@ -148,19 +149,20 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         }
       },
       "tag": "proxy2"
@@ -170,7 +172,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "mpc.mobayandeh.top",
+            "address": "63.141.128.17",
             "port": 443,
             "users": [
               {
@@ -188,19 +190,20 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         }
       },
       "tag": "proxy3"
@@ -210,7 +213,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "mtn.v2plus.ovh",
+            "address": "8.6.112.0",
             "port": 443,
             "users": [
               {
@@ -228,19 +231,20 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         }
       },
       "tag": "proxy4"
@@ -250,7 +254,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "mci.v2plus.ovh",
+            "address": "5.175.141.15",
             "port": 443,
             "users": [
               {
@@ -268,19 +272,20 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         }
       },
       "tag": "proxy5"
@@ -290,7 +295,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "cdn4.eswap.ir",
+            "address": "31.43.179.0",
             "port": 443,
             "users": [
               {
@@ -308,182 +313,23 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         }
       },
       "tag": "proxy6"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "fox3.wizard2shop.org",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        }
-      },
-      "tag": "proxy7"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "dir2.serviceali.ir",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        }
-      },
-      "tag": "proxy8"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "cdn.sjdpictures.ir",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        }
-      },
-      "tag": "proxy9"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "freeiran.lookanet.app",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        }
-      },
-      "tag": "proxy10"
     },
     {
       "tag": "direct",
@@ -504,264 +350,6 @@
     {
       "protocol": "dns",
       "tag": "dns-out"
-    },
-    {
-      "tag": "udp-noisesv4",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "ForceIPv4",
-        "noises": [
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          }
-        ]
-      }
-    },
-    {
-      "tag": "udp-noisesv6",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "ForceIPv6",
-        "noises": [
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          }
-        ]
-      }
     }
   ],
   "routing": {
@@ -787,6 +375,12 @@
         "inboundTag": [
           "remote-dns"
         ],
+        "type": "field"
+      },
+      {
+        "network": "udp",
+        "outboundTag": "block",
+        "port": "443",
         "type": "field"
       },
       {
@@ -820,32 +414,9 @@
         "type": "field"
       },
       {
-        "outboundTag": "udp-noisesv4",
-        "network": "udp",
-        "ip": [
-          "0.0.0.0/0"
-        ],
-        "port": 443,
-        "type": "field"
-      },
-      {
-        "outboundTag": "udp-noisesv6",
-        "network": "udp",
-        "ip": [
-          "::/0"
-        ],
-        "port": 443,
-        "type": "field"
-      },
-      {
-        "outboundTag": "direct",
-        "network": "udp",
-        "type": "field"
-      },
-      {
         "balancerTag": "all",
         "type": "field",
-        "network": "tcp"
+        "network": "tcp,udp"
       }
     ],
     "balancers": [
@@ -868,7 +439,7 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#0 WORKER.99FREAKING.TLS 2026-02-01"
+  "remarks": "#0 WORKER.99FREAKING.TLS 2026-08-30"
 }
 ,
 {
@@ -880,12 +451,21 @@
   },
   "dns": {
     "hosts": {
-      "dns.cloudflare.com": "cloudflare.com",
+      "one.one.one.one": [
+        "1.1.1.1",
+        "1.0.0.1",
+        "2606:4700:4700::1111",
+        "2606:4700:4700::1001"
+      ],
       "dns.google": [
         "8.8.8.8",
         "8.8.4.4",
         "2001:4860:4860::8888",
         "2001:4860:4860::8844"
+      ],
+      "dns.digitalsize.net": [
+        "94.130.135.203",
+        "2a01:4f8:13b:3407::face"
       ]
     },
     "servers": [
@@ -896,26 +476,22 @@
           "geosite:private",
           "full:cloudflare.com",
           "regexp:\\.ir$",
-          "domain:ipts.spancloud.sbs",
-          "domain:mkh.v2plus.ovh",
-          "domain:fox3.wizard2shop.org",
-          "domain:freeiran.lookanet.app",
-          "domain:mci.v2plus.ovh",
-          "domain:mpc.mobayandeh.top",
-          "domain:mtn.v2plus.ovh"
+          "domain:cdnjs.com",
+          "domain:chatgpt.com",
+          "domain:laravel.com",
+          "domain:tgju.org",
+          "domain:www.hcaptcha.com"
         ],
         "skipFallback": true
       },
       {
-        "address": "https://dns.google/dns-query",
-        "tag": "remote-dns"
+        "address": "https://dns.google/dns-query"
       },
       {
-        "address": "https://dns.google/dns-query",
-        "tag": "frag-dns"
-      },
-      "https+local://dns.digitalsize.net/dns-query"
+        "address": "https://one.one.one.one/dns-query"
+      }
     ],
+    "tag": "remote-dns",
     "queryStrategy": "UseIP"
   },
   "fakedns": [
@@ -940,6 +516,7 @@
         "destOverride": [
           "http",
           "tls",
+          "quic",
           "fakedns"
         ]
       },
@@ -948,17 +525,6 @@
         "udp": true,
         "userLevel": 8
       }
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10853,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "1.1.1.1",
-        "network": "tcp,udp",
-        "port": 53
-      },
-      "tag": "dns-in"
     }
   ],
   "outbounds": [
@@ -967,7 +533,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "mci.typhonemobile.ir",
+            "address": "laravel.com",
             "port": 443,
             "users": [
               {
@@ -985,36 +551,63 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
+        "finalmask": {
+          "tcp": [
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "tlshello",
+                "lengths": [
+                  "5",
+                  "94",
+                  "1"
+                ],
+                "delays": [
+                  "0"
+                ],
+                "maxSplit": "0"
+              }
+            },
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "1-1",
+                "lengths": [
+                  "109",
+                  "1"
+                ],
+                "delays": [
+                  "1"
+                ],
+                "maxSplit": "355"
+              }
+            }
+          ]
         }
       },
-      "tag": "proxy1_frag1"
+      "tag": "proxy1_fragc1"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "mtn.typhonemobile.ir",
+            "address": "www.hcaptcha.com",
             "port": 443,
             "users": [
               {
@@ -1032,36 +625,63 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
+        "finalmask": {
+          "tcp": [
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "tlshello",
+                "lengths": [
+                  "5",
+                  "94",
+                  "1"
+                ],
+                "delays": [
+                  "0"
+                ],
+                "maxSplit": "0"
+              }
+            },
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "1-1",
+                "lengths": [
+                  "109",
+                  "1"
+                ],
+                "delays": [
+                  "1"
+                ],
+                "maxSplit": "355"
+              }
+            }
+          ]
         }
       },
-      "tag": "proxy2_frag1"
+      "tag": "proxy2_fragc1"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "mpc.mobayandeh.top",
+            "address": "63.141.128.17",
             "port": 443,
             "users": [
               {
@@ -1079,36 +699,63 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
+        "finalmask": {
+          "tcp": [
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "tlshello",
+                "lengths": [
+                  "5",
+                  "94",
+                  "1"
+                ],
+                "delays": [
+                  "0"
+                ],
+                "maxSplit": "0"
+              }
+            },
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "1-1",
+                "lengths": [
+                  "109",
+                  "1"
+                ],
+                "delays": [
+                  "1"
+                ],
+                "maxSplit": "355"
+              }
+            }
+          ]
         }
       },
-      "tag": "proxy3_frag1"
+      "tag": "proxy3_fragc1"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "mtn.v2plus.ovh",
+            "address": "8.6.112.0",
             "port": 443,
             "users": [
               {
@@ -1126,36 +773,63 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
+        "finalmask": {
+          "tcp": [
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "tlshello",
+                "lengths": [
+                  "5",
+                  "94",
+                  "1"
+                ],
+                "delays": [
+                  "0"
+                ],
+                "maxSplit": "0"
+              }
+            },
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "1-1",
+                "lengths": [
+                  "109",
+                  "1"
+                ],
+                "delays": [
+                  "1"
+                ],
+                "maxSplit": "355"
+              }
+            }
+          ]
         }
       },
-      "tag": "proxy4_frag1"
+      "tag": "proxy4_fragc1"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "mci.v2plus.ovh",
+            "address": "5.175.141.15",
             "port": 443,
             "users": [
               {
@@ -1173,36 +847,63 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
+        "finalmask": {
+          "tcp": [
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "tlshello",
+                "lengths": [
+                  "5",
+                  "94",
+                  "1"
+                ],
+                "delays": [
+                  "0"
+                ],
+                "maxSplit": "0"
+              }
+            },
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "1-1",
+                "lengths": [
+                  "109",
+                  "1"
+                ],
+                "delays": [
+                  "1"
+                ],
+                "maxSplit": "355"
+              }
+            }
+          ]
         }
       },
-      "tag": "proxy5_frag1"
+      "tag": "proxy5_fragc1"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "cdn4.eswap.ir",
+            "address": "31.43.179.0",
             "port": 443,
             "users": [
               {
@@ -1220,239 +921,56 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
-          ]
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
-        }
-      },
-      "tag": "proxy6_frag1"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "fox3.wizard2shop.org",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
+        "finalmask": {
+          "tcp": [
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "tlshello",
+                "lengths": [
+                  "5",
+                  "94",
+                  "1"
+                ],
+                "delays": [
+                  "0"
+                ],
+                "maxSplit": "0"
               }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
-        }
-      },
-      "tag": "proxy7_frag1"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "dir2.serviceali.ir",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
+            },
+            {
+              "type": "fragment",
+              "settings": {
+                "packets": "1-1",
+                "lengths": [
+                  "109",
+                  "1"
+                ],
+                "delays": [
+                  "1"
+                ],
+                "maxSplit": "355"
               }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
+            }
           ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
         }
       },
-      "tag": "proxy8_frag1"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "cdn.sjdpictures.ir",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
-        }
-      },
-      "tag": "proxy9_frag1"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "freeiran.lookanet.app",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ]
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        },
-        "sockopt": {
-          "dialerProxy": "fragment1",
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 100,
-          "mark": 255,
-          "tcpFastOpen": true
-        }
-      },
-      "tag": "proxy10_frag1"
-    },
-    {
-      "tag": "fragment1",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "UseIPv4v6",
-        "fragment": {
-          "packets": "tlshello",
-          "length": "1",
-          "interval": "0"
-        }
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "",
-        "sockopt": {
-          "tcpNoDelay": true,
-          "tcpKeepAliveIdle": 45,
-          "tcpKeepAliveInterval": 45,
-          "tcpUserTimeout": 12000
-        }
-      }
+      "tag": "proxy6_fragc1"
     },
     {
       "tag": "direct",
@@ -1473,264 +991,6 @@
     {
       "protocol": "dns",
       "tag": "dns-out"
-    },
-    {
-      "tag": "udp-noisesv4",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "ForceIPv4",
-        "noises": [
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          }
-        ]
-      }
-    },
-    {
-      "tag": "udp-noisesv6",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "ForceIPv6",
-        "noises": [
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          }
-        ]
-      }
     }
   ],
   "routing": {
@@ -1752,17 +1012,16 @@
         "type": "field"
       },
       {
-        "inboundTag": [
-          "frag-dns"
-        ],
-        "outboundTag": "fragment1",
-        "type": "field"
-      },
-      {
+        "balancerTag": "all",
         "inboundTag": [
           "remote-dns"
         ],
-        "balancerTag": "all",
+        "type": "field"
+      },
+      {
+        "network": "udp",
+        "outboundTag": "block",
+        "port": "443",
         "type": "field"
       },
       {
@@ -1796,32 +1055,9 @@
         "type": "field"
       },
       {
-        "outboundTag": "udp-noisesv4",
-        "network": "udp",
-        "ip": [
-          "0.0.0.0/0"
-        ],
-        "port": 443,
-        "type": "field"
-      },
-      {
-        "outboundTag": "udp-noisesv6",
-        "network": "udp",
-        "ip": [
-          "::/0"
-        ],
-        "port": 443,
-        "type": "field"
-      },
-      {
-        "outboundTag": "direct",
-        "network": "udp",
-        "type": "field"
-      },
-      {
         "balancerTag": "all",
         "type": "field",
-        "network": "tcp"
+        "network": "tcp,udp"
       }
     ],
     "balancers": [
@@ -1844,7 +1080,7 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#1 WORKER.99FREAKING.TLS 2026-02-01"
+  "remarks": "#C1 WORKER.99FREAKING.TLS 2026-08-30"
 }
 ,
 {
@@ -1856,12 +1092,21 @@
   },
   "dns": {
     "hosts": {
-      "dns.cloudflare.com": "cloudflare.com",
+      "one.one.one.one": [
+        "1.1.1.1",
+        "1.0.0.1",
+        "2606:4700:4700::1111",
+        "2606:4700:4700::1001"
+      ],
       "dns.google": [
         "8.8.8.8",
         "8.8.4.4",
         "2001:4860:4860::8888",
         "2001:4860:4860::8844"
+      ],
+      "dns.digitalsize.net": [
+        "94.130.135.203",
+        "2a01:4f8:13b:3407::face"
       ]
     },
     "servers": [
@@ -1872,26 +1117,22 @@
           "geosite:private",
           "full:cloudflare.com",
           "regexp:\\.ir$",
-          "domain:ipts.spancloud.sbs",
-          "domain:mkh.v2plus.ovh",
-          "domain:fox3.wizard2shop.org",
-          "domain:freeiran.lookanet.app",
-          "domain:mci.v2plus.ovh",
-          "domain:mpc.mobayandeh.top",
-          "domain:mtn.v2plus.ovh"
+          "domain:cdnjs.com",
+          "domain:chatgpt.com",
+          "domain:laravel.com",
+          "domain:tgju.org",
+          "domain:www.hcaptcha.com"
         ],
         "skipFallback": true
       },
       {
-        "address": "https://dns.google/dns-query",
-        "tag": "remote-dns"
+        "address": "https://dns.google/dns-query"
       },
       {
-        "address": "https://dns.google/dns-query",
-        "tag": "frag-dns"
-      },
-      "https+local://dns.digitalsize.net/dns-query"
+        "address": "https://one.one.one.one/dns-query"
+      }
     ],
+    "tag": "remote-dns",
     "queryStrategy": "UseIP"
   },
   "fakedns": [
@@ -1916,6 +1157,7 @@
         "destOverride": [
           "http",
           "tls",
+          "quic",
           "fakedns"
         ]
       },
@@ -1924,17 +1166,6 @@
         "udp": true,
         "userLevel": 8
       }
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10853,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "1.1.1.1",
-        "network": "tcp,udp",
-        "port": 53
-      },
-      "tag": "dns-in"
     }
   ],
   "outbounds": [
@@ -1943,7 +1174,7 @@
       "settings": {
         "vnext": [
           {
-            "address": "mci.typhonemobile.ir",
+            "address": "laravel.com",
             "port": 443,
             "users": [
               {
@@ -1961,31 +1192,48 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
           ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        },
+        "finalmask": {
+          "tcp": [
+            {
+              "settings": {
+                "delays": [
+                  "0"
+                ],
+                "lengths": [
+                  "1",
+                  "10000"
+                ],
+                "maxSplit": "",
+                "packets": "tlshello"
+              },
+              "type": "fragment"
+            }
+          ]
         }
       },
-      "tag": "proxy1"
+      "tag": "proxy1_fragc2"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "mtn.typhonemobile.ir",
+            "address": "www.hcaptcha.com",
             "port": 443,
             "users": [
               {
@@ -2003,31 +1251,48 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
           ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        },
+        "finalmask": {
+          "tcp": [
+            {
+              "settings": {
+                "delays": [
+                  "0"
+                ],
+                "lengths": [
+                  "1",
+                  "10000"
+                ],
+                "maxSplit": "",
+                "packets": "tlshello"
+              },
+              "type": "fragment"
+            }
+          ]
         }
       },
-      "tag": "proxy2"
+      "tag": "proxy2_fragc2"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "mpc.mobayandeh.top",
+            "address": "63.141.128.17",
             "port": 443,
             "users": [
               {
@@ -2045,31 +1310,48 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
           ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        },
+        "finalmask": {
+          "tcp": [
+            {
+              "settings": {
+                "delays": [
+                  "0"
+                ],
+                "lengths": [
+                  "1",
+                  "10000"
+                ],
+                "maxSplit": "",
+                "packets": "tlshello"
+              },
+              "type": "fragment"
+            }
+          ]
         }
       },
-      "tag": "proxy3"
+      "tag": "proxy3_fragc2"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "mtn.v2plus.ovh",
+            "address": "8.6.112.0",
             "port": 443,
             "users": [
               {
@@ -2087,31 +1369,48 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
           ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        },
+        "finalmask": {
+          "tcp": [
+            {
+              "settings": {
+                "delays": [
+                  "0"
+                ],
+                "lengths": [
+                  "1",
+                  "10000"
+                ],
+                "maxSplit": "",
+                "packets": "tlshello"
+              },
+              "type": "fragment"
+            }
+          ]
         }
       },
-      "tag": "proxy4"
+      "tag": "proxy4_fragc2"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "mci.v2plus.ovh",
+            "address": "5.175.141.15",
             "port": 443,
             "users": [
               {
@@ -2129,31 +1428,48 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
           ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        },
+        "finalmask": {
+          "tcp": [
+            {
+              "settings": {
+                "delays": [
+                  "0"
+                ],
+                "lengths": [
+                  "1",
+                  "10000"
+                ],
+                "maxSplit": "",
+                "packets": "tlshello"
+              },
+              "type": "fragment"
+            }
+          ]
         }
       },
-      "tag": "proxy5"
+      "tag": "proxy5_fragc2"
     },
     {
       "protocol": "vless",
       "settings": {
         "vnext": [
           {
-            "address": "cdn4.eswap.ir",
+            "address": "31.43.179.0",
             "port": 443,
             "users": [
               {
@@ -2171,192 +1487,41 @@
         "security": "tls",
         "tlsSettings": {
           "allowInsecure": false,
-          "fingerprint": "firefox",
+          "fingerprint": "unsafe",
           "serverName": "super-bush-5c2c.99freaking.workers.dev",
           "show": false,
           "alpn": [
             "http/1.1"
           ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
         },
         "wsSettings": {
           "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
             "Host": "super-bush-5c2c.99freaking.workers.dev"
           },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        }
-      },
-      "tag": "proxy6"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "fox3.wizard2shop.org",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
         },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
+        "finalmask": {
+          "tcp": [
+            {
+              "settings": {
+                "delays": [
+                  "0"
+                ],
+                "lengths": [
+                  "1",
+                  "10000"
+                ],
+                "maxSplit": "",
+                "packets": "tlshello"
+              },
+              "type": "fragment"
+            }
+          ]
         }
       },
-      "tag": "proxy7"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "dir2.serviceali.ir",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        }
-      },
-      "tag": "proxy8"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "cdn.sjdpictures.ir",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        }
-      },
-      "tag": "proxy9"
-    },
-    {
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "freeiran.lookanet.app",
-            "port": 443,
-            "users": [
-              {
-                "encryption": "none",
-                "flow": "",
-                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
-                "level": 8
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false,
-          "fingerprint": "firefox",
-          "serverName": "super-bush-5c2c.99freaking.workers.dev",
-          "show": false,
-          "alpn": [
-            "http/1.1"
-          ],
-          "echConfigList": "udp://1.1.1.1:53",
-          "echForceQuery": "full"
-        },
-        "wsSettings": {
-          "headers": {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
-            "Host": "super-bush-5c2c.99freaking.workers.dev"
-          },
-          "path": "/eyJqdW5rIjoiZ1hNNFdlRmZxIiwicHJvdG9jb2wiOiJ2bCIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==?ed=2560"
-        }
-      },
-      "tag": "proxy10"
+      "tag": "proxy6_fragc2"
     },
     {
       "tag": "direct",
@@ -2377,264 +1542,6 @@
     {
       "protocol": "dns",
       "tag": "dns-out"
-    },
-    {
-      "tag": "udp-noisesv4",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "ForceIPv4",
-        "noises": [
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1250",
-            "delay": "10"
-          }
-        ]
-      }
-    },
-    {
-      "tag": "udp-noisesv6",
-      "protocol": "freedom",
-      "settings": {
-        "domainStrategy": "ForceIPv6",
-        "noises": [
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          },
-          {
-            "type": "rand",
-            "packet": "1230",
-            "delay": "10"
-          }
-        ]
-      }
     }
   ],
   "routing": {
@@ -2656,17 +1563,16 @@
         "type": "field"
       },
       {
-        "inboundTag": [
-          "frag-dns"
-        ],
-        "outboundTag": "fragmente",
-        "type": "field"
-      },
-      {
+        "balancerTag": "all",
         "inboundTag": [
           "remote-dns"
         ],
-        "balancerTag": "all",
+        "type": "field"
+      },
+      {
+        "network": "udp",
+        "outboundTag": "block",
+        "port": "443",
         "type": "field"
       },
       {
@@ -2700,32 +1606,9 @@
         "type": "field"
       },
       {
-        "outboundTag": "udp-noisesv4",
-        "network": "udp",
-        "ip": [
-          "0.0.0.0/0"
-        ],
-        "port": 443,
-        "type": "field"
-      },
-      {
-        "outboundTag": "udp-noisesv6",
-        "network": "udp",
-        "ip": [
-          "::/0"
-        ],
-        "port": 443,
-        "type": "field"
-      },
-      {
-        "outboundTag": "direct",
-        "network": "udp",
-        "type": "field"
-      },
-      {
         "balancerTag": "all",
         "type": "field",
-        "network": "tcp"
+        "network": "tcp,udp"
       }
     ],
     "balancers": [
@@ -2748,6 +1631,461 @@
     ],
     "EnableConcurrency": true
   },
-  "remarks": "#E WORKER.99FREAKING.TLS 2026-02-01"
+  "remarks": "#C2 WORKER.99FREAKING.TLS 2026-08-30"
+}
+,
+{
+  "log": {
+    "access": "",
+    "error": "",
+    "loglevel": "warning",
+    "dnsLog": false
+  },
+  "dns": {
+    "hosts": {
+      "one.one.one.one": [
+        "1.1.1.1",
+        "1.0.0.1",
+        "2606:4700:4700::1111",
+        "2606:4700:4700::1001"
+      ],
+      "dns.google": [
+        "8.8.8.8",
+        "8.8.4.4",
+        "2001:4860:4860::8888",
+        "2001:4860:4860::8844"
+      ],
+      "dns.digitalsize.net": [
+        "94.130.135.203",
+        "2a01:4f8:13b:3407::face"
+      ]
+    },
+    "servers": [
+      "fakedns",
+      {
+        "address": "localhost",
+        "domains": [
+          "geosite:private",
+          "full:cloudflare.com",
+          "regexp:\\.ir$",
+          "domain:cdnjs.com",
+          "domain:chatgpt.com",
+          "domain:laravel.com",
+          "domain:tgju.org",
+          "domain:www.hcaptcha.com"
+        ],
+        "skipFallback": true
+      },
+      {
+        "address": "https://dns.google/dns-query"
+      },
+      {
+        "address": "https://one.one.one.one/dns-query"
+      }
+    ],
+    "tag": "remote-dns",
+    "queryStrategy": "UseIP"
+  },
+  "fakedns": [
+    {
+      "ipPool": "198.18.0.0/15",
+      "poolSize": 10000
+    },
+    {
+      "ipPool": "fc00::/18",
+      "poolSize": 10000
+    }
+  ],
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic",
+          "fakedns"
+        ]
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "laravel.com",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "unsafe",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "echConfigList": "https://dns.digitalsize.net/dns-query",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
+          },
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        }
+      },
+      "tag": "proxy1"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "www.hcaptcha.com",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "unsafe",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "echConfigList": "https://dns.digitalsize.net/dns-query",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
+          },
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        }
+      },
+      "tag": "proxy2"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "63.141.128.17",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "unsafe",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "echConfigList": "https://dns.digitalsize.net/dns-query",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
+          },
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        }
+      },
+      "tag": "proxy3"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "8.6.112.0",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "unsafe",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "echConfigList": "https://dns.digitalsize.net/dns-query",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
+          },
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        }
+      },
+      "tag": "proxy4"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "5.175.141.15",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "unsafe",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "echConfigList": "https://dns.digitalsize.net/dns-query",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
+          },
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        }
+      },
+      "tag": "proxy5"
+    },
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "31.43.179.0",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "d223b502-9ad4-4ef6-b99f-f176b050fc01",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false,
+          "fingerprint": "unsafe",
+          "serverName": "super-bush-5c2c.99freaking.workers.dev",
+          "show": false,
+          "alpn": [
+            "http/1.1"
+          ],
+          "cipherSuites": "TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA:TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256:TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+          "echConfigList": "https://dns.digitalsize.net/dns-query",
+          "echForceQuery": "full"
+        },
+        "wsSettings": {
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+            "Host": "super-bush-5c2c.99freaking.workers.dev"
+          },
+          "path": "/83oZ1ScgHJR3UAdU?ed=2560"
+        }
+      },
+      "tag": "proxy6"
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      }
+    },
+    {
+      "protocol": "dns",
+      "tag": "dns-out"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "inboundTag": [
+          "dns-in"
+        ],
+        "outboundTag": "dns-out",
+        "type": "field"
+      },
+      {
+        "inboundTag": [
+          "socks"
+        ],
+        "port": "53",
+        "outboundTag": "dns-out",
+        "type": "field"
+      },
+      {
+        "balancerTag": "all",
+        "inboundTag": [
+          "remote-dns"
+        ],
+        "type": "field"
+      },
+      {
+        "network": "udp",
+        "outboundTag": "block",
+        "port": "443",
+        "type": "field"
+      },
+      {
+        "ip": [
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
+        ],
+        "outboundTag": "block",
+        "type": "field"
+      },
+      {
+        "domain": [
+          "regexp:\\.ir$"
+        ],
+        "outboundTag": "direct",
+        "type": "field"
+      },
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "direct",
+        "type": "field"
+      },
+      {
+        "domain": [
+          "geosite:private"
+        ],
+        "outboundTag": "direct",
+        "type": "field"
+      },
+      {
+        "balancerTag": "all",
+        "type": "field",
+        "network": "tcp,udp"
+      }
+    ],
+    "balancers": [
+      {
+        "tag": "all",
+        "selector": [
+          "prox"
+        ],
+        "strategy": {
+          "type": "leastPing"
+        }
+      }
+    ]
+  },
+  "observatory": {
+    "probeInterval": "10m",
+    "probeURL": "https://www.gstatic.com/generate_204",
+    "subjectSelector": [
+      "prox"
+    ],
+    "EnableConcurrency": true
+  },
+  "remarks": "#E WORKER.99FREAKING.TLS 2026-08-30"
 }
 ]

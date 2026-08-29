@@ -48,6 +48,7 @@ git config --global https.proxy "$PROXY_TYPE://${HOSTIP}:$1"
 clear_proxy(){
 unset http_proxy HTTPS_PROXY no_proxy NO_PROXY https_proxy HTTP_PROXY ALL_PROXY all_proxy
 git config --global --unset http.proxy
+git config --global --unset https.proxy
 clear_proxy_apt
 }
 

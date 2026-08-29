@@ -1,5 +1,5 @@
 [Unit]
-Description=paqet firewall rules
+Description=xdns firewall rules
 DefaultDependencies=no
 Before=network-pre.target
 Wants=network-pre.target

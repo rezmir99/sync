@@ -1,51 +1,227 @@
-[
- {
- "remarks": "🇩🇪Germany",
-"inbounds": [
- {
- "listen": "127.0.0.1",
- "port": 7891,
-"protocol": "socks",
- "settings": { "auth": "noauth", "udp": true }
- }
- ],
- "outbounds": [
- {
- "tag": "xdns-out",
- "protocol": "vless",
- "settings": {
- "vnext": [
- {
- "address": "37.32.2.4",
- "port": 53,
- "users": [
- {
- "id": "5aad8b1c-515d-4e19-b12d-6192e20e6c76",
- "encryption": "none"
- }
- ]
- }
- ]
- },
- "streamSettings": {
- "network": "kcp",
- "kcpSettings": {
- "mtu": 60,
- "tti": 100,
- "uplinkCapacity": 0,
- "downlinkCapacity": 0,
- "congestion": true
- },
- "finalmask": {
- "udp": [
- {
- "type": "xdns",
- "settings": { "domain": "s.typhone1.site" }
- }
- ]
- }
- }
- }
- ]
- }
+{
+  "log": {
+    "access": "",
+    "error": "",
+    "loglevel": "warning",
+    "dnsLog": false
+  },
+  "dns": {
+    "hosts": {
+      "dns.google": [
+        "8.8.8.8",
+        "8.8.4.4",
+        "2001:4860:4860::8888",
+        "2001:4860:4860::8844"
+      ],
+      "dns.digitalsize.net": [
+        "94.130.135.203",
+        "2a01:4f8:13b:3407::face"
+      ]
+    },
+    "servers": [
+      
+      {
+        "address": "localhost",
+        "domains": [
+          "geosite:private",
+          "full:cloudflare.com",
+          "regexp:\\.ir$",
+          "domain:mkh.v2plus.ovh",
+          "domain:freeiran.lookanet.app",
+          "domain:mci.v2plus.ovh",
+          "domain:mpc.mobayandeh.top",
+          "domain:mtn.v2plus.ovh",
+          "domain:ip.ali.lat"
+        ],
+        "skipFallback": true
+      },
+      {
+        "address": "https://dns.google/dns-query",
+        "tag": "remote-dns"
+      },
+      "https+local://dns.digitalsize.net/dns-query"
+    ],
+    "queryStrategy": "UseIP"
+  },
+  "fakedns": [
+    {
+      "ipPool": "198.18.0.0/15",
+      "poolSize": 10000
+    },
+    {
+      "ipPool": "fc00::/18",
+      "poolSize": 10000
+    }
+  ],
+  "inbounds": [
+    {
+      "tag": "socks",
+      "port": 10808,
+      "listen": "127.0.0.1",
+      "protocol": "socks",
+      "sniffing": {
+        "enabled": true,
+        "routeOnly": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "fakedns"
+        ]
+      },
+      "settings": {
+        "auth": "noauth",
+        "udp": true,
+        "userLevel": 8
+      }
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 10853,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "1.1.1.1",
+        "network": "tcp,udp",
+        "port": 53
+      },
+      "tag": "dns-in"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "127.0.0.1",
+            "port": 53,
+            "users": [
+              {
+                "encryption": "none",
+                "flow": "",
+                "id": "ced265ad-4016-4582-b2db-a458a5858b6a",
+                "level": 8
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "kcp",
+        "security": "",
+        "kcpSettings": {
+          "mtu": 100,
+          "tti": 10,
+          "uplinkCapacity": 1,
+          "downlinkCapacity": 5,
+          "congestion": true,
+          "readBufferSize": 1,
+          "writeBufferSize": 1
+        },
+        "finalmask": {
+          "udp": [
+
+            {
+              "type": "xdns",
+              "settings": {
+                "resolvers": [
+"x.typhone2.site:a+udp://10.185.68.114:53",
+"x.typhone2.site:a+udp://10.185.68.113:53",
+"x.typhone2.site:a+udp://10.185.68.114:53",
+"x.typhone2.site:a+udp://10.185.68.113:53",
+"x.typhone2.site:a+udp://10.185.68.114:53",
+"x.typhone2.site:a+udp://10.185.68.113:53",
+"x.typhone2.site:a+udp://10.185.68.114:53",
+"x.typhone2.site:a+udp://10.185.68.113:53"
 ]
+              }
+            }
+          ]
+        }
+      },
+      "tag": "proxy"
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP"
+      }
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
+        }
+      }
+    },
+    {
+      "protocol": "dns",
+      "tag": "dns-out"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "inboundTag": [
+          "dns-in"
+        ],
+        "outboundTag": "dns-out",
+        "type": "field"
+      },
+      {
+        "inboundTag": [
+          "socks"
+        ],
+        "port": "53",
+        "outboundTag": "dns-out",
+        "type": "field"
+      },
+      {
+        "inboundTag": [
+          "remote-dns"
+        ],
+        "type": "field",
+        "outboundTag": "proxy"
+      },
+      {
+        "ip": [
+          "10.10.34.34",
+          "10.10.34.35",
+          "10.10.34.36"
+        ],
+        "outboundTag": "block",
+        "type": "field"
+      },
+      {
+        "domain": [
+          "regexp:\\.ir$"
+        ],
+        "outboundTag": "direct",
+        "type": "field"
+      },
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "direct",
+        "type": "field"
+      },
+      {
+        "domain": [
+          "geosite:private"
+        ],
+        "outboundTag": "direct",
+        "type": "field"
+      },
+      {
+        "type": "field",
+        "network": "tcp,udp",
+        "outboundTag": "proxy"
+      }
+    ]
+  },
+  "remarks": "xdns"
+}
