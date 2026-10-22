@@ -1,5 +1,5 @@
 #!/bin/bash
-PERM_GIT_PATH=$(echo "${0%/*}" | rev | cut -d '/' -f 4- | rev)
+[ -z "$PERM_GIT_PATH" ] && { echo "no PERM_GIT_PATH"; exit 1; }
 SERVER_PROFILE_PATH="$PERM_GIT_PATH/ProgramData/server_profile.sh"
 
 cd $HOME
