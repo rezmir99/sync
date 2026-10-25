@@ -20,13 +20,13 @@ network:
 
   # IPv4 configuration
   ipv4:
-    addr: "10.0.0.100:9999"                  # CHANGE ME: Server IPv4 and port (port must match listen.addr)
-    router_mac: "aa:bb:cc:dd:ee:ff"          # CHANGE ME: Gateway/router MAC address
+    addr: "5.75.200.179:9999"                  # CHANGE ME: Server IPv4 and port (port must match listen.addr)
+    router_mac: "d2:74:7f:6e:37:e3"          # CHANGE ME: Gateway/router MAC address
 
   # IPv6 configuration (optional)
   ipv6:
     addr: "[2a01:4f8:1c1b:e7b::1]:9999"                       # CHANGE ME: Server IPv6 and port (or remove if not using IPv6)
-    router_mac: "aa:bb:cc:dd:ee:ff"          # CHANGE ME: Gateway/router MAC address
+    router_mac: "d2:74:7f:6e:37:e3"          # CHANGE ME: Gateway/router MAC address
 
   # TCP flags for packet crafting (optional - will use defaults)
   tcp:
