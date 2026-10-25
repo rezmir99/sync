@@ -13,7 +13,7 @@ log:
 #    username: ""                # Optional SOCKS5 authentication
 #    password: ""                # Optional SOCKS5 authentication
 
- Port forwarding configuration (can be used alongside SOCKS5)
+# Port forwarding configuration (can be used alongside SOCKS5)
 forward:
    - listen: "0.0.0.0:80"  # Local port to listen on
      target: "127.0.0.1:80"    # Target to forward to (via server)
