@@ -48,7 +48,7 @@ if [ "$bin" = true ]; then
 
     # cp firewall rules
     if [ "$role" =  server ]; then
-        cp -f "${config_path%/*}/firewall.sh" "/root/paqet/firewall.sh"
+        cp -f "$bin_path/firewall.sh" "/root/paqet/firewall.sh"
         chmod 755 "/root/paqet/firewall.sh"
         sudo cat "$bin_path/paqet_firewall.service" > /etc/systemd/system/paqet_firewall.service
     fi
