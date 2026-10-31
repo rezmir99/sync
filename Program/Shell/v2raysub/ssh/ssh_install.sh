@@ -14,7 +14,3 @@ sudo cat "$bin_path/ssh-$type-tunnel_restart.timer" > /etc/systemd/system/ssh-$t
 
 # reload
 sudo systemctl daemon-reload
-
-# update paqet
-systemctl enable --now ssh-$type-tunnel
-systemctl restart ssh-$type-tunnel
