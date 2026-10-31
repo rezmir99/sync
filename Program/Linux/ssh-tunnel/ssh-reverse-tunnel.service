@@ -1,0 +1,22 @@
+[Unit]
+Description=SSH Reverse Tunnel to Iran VPS
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -NT \
+    -i /root/.ssh/iran_tunnel \
+    -o IdentitiesOnly=yes \
+    -o BatchMode=yes \
+    -o ExitOnForwardFailure=yes \
+    -o ServerAliveInterval=30 \
+    -o ServerAliveCountMax=3 \
+    -o StrictHostKeyChecking=yes \
+    -R 127.0.0.1:443:127.0.0.1:2083 \
+    SSH_USER@IRAN_IP
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

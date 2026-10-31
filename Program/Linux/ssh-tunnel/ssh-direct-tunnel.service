@@ -1,0 +1,23 @@
+[Unit]
+Description=Direct SSH Local Forward to Foreign VPS
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -NT \
+  -i /root/.ssh/foreign_tunnel \
+  -o IdentitiesOnly=yes \
+  -o BatchMode=yes \
+  -o StrictHostKeyChecking=yes \
+  -o ExitOnForwardFailure=yes \
+  -o ServerAliveInterval=30 \
+  -o ServerAliveCountMax=3 \
+  -o ConnectTimeout=10 \
+  -L 0.0.0.0:8443:127.0.0.1:80 \
+  root@5.75.200.179
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
