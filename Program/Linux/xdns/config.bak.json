@@ -1,0 +1,65 @@
+{
+	"log": {
+    "access": "",
+    "error": "",
+    "loglevel": "debug",
+    "dnsLog": false
+  },
+"inbounds": [
+{
+  "listen": "0.0.0.0",
+  "port": 5300,
+  "protocol": "vless",
+  "tag": "in-5300-udp",
+  "settings": {
+    "clients": [
+      {
+        "id": "ced265ad-4016-4582-b2db-a458a5858b6a",
+        "email": "typhone1",
+        "flow": "",
+        "limitIp": 0,
+        "totalGB": 214748364800,
+        "expiryTime": 0,
+        "enable": true,
+        "tgId": 0,
+        "subId": "yc6fhz61scg8shwm",
+        "comment": "",
+        "reset": 0,
+        "created_at": 1781187338118,
+        "updated_at": 1785840200000
+      }
+    ],
+    "decryption": "none",
+    "encryption": "none"
+  },
+  "sniffing": {
+    "enabled": false
+  },
+  "streamSettings": {
+    "network": "kcp",
+    "security": "none",
+    "finalmask": {
+      "udp": [
+        {
+          "type": "xdns",
+          "settings": {
+            "domains": [
+              "x.typhone2.site"
+            ]
+          }
+        }
+      ]
+    },
+    "kcpSettings": {
+      "mtu": 95,
+      "tti": 10
+    }
+  }
+}
+],
+  "outbounds": [
+    {
+      "protocol": "freedom"
+    }
+  ]
+}  
