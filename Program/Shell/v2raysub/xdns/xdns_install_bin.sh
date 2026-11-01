@@ -2,9 +2,10 @@
 # nano /root/xray-core/config.json.bak
 
 mkdir -p /root/xray-core
+#https://github.com//XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
 
 bin_name="xray"
-bin_link='https://github.com//XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip'
+bin_link='https://github.com/XTLS/Xray-core/releases/download/v26.7.28/Xray-linux-64.zip'
 bin_zip=$(basename -- "$bin_link")
 cd /root/xray-core
 rm -f "$bin_zip"
