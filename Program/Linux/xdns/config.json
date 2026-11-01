@@ -46,7 +46,8 @@
                   {
                     "names": [
                       "x.typhone2.site"
-                    ]
+                    ],
+                    "edns0": 1232
                   }
                 ]
               }
@@ -54,7 +55,7 @@
           ]
         },
         "kcpSettings": {
-          "mtu": 95,
+          "mtu": 170,
           "tti": 10
         },
         "method": "mkcp"
