@@ -16,7 +16,7 @@ sudo cat "$bin_path/firewall.sh" > /root/xdns/firewall.sh
 chmod 0755 /root/xdns/firewall.sh
 
 # install bin
-xdns_install_bin
+xdns_update_bin
 
 # enable on boot
 xdns_start
