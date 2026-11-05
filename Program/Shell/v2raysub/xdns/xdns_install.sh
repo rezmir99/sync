@@ -2,7 +2,7 @@
 . "$HOME/server_profile.sh"
 bin_path="$PERM_GIT_PATH/Program/Linux/xdns"
 
-sync_server
+sync_server || { echo "cant sync_server"; exit 1; }
 
 sudo cat "$bin_path/xdns.service" >  /etc/systemd/system/xdns.service
 sudo cat "$bin_path/xdns_restart.service" >  /etc/systemd/system/xdns_restart.service

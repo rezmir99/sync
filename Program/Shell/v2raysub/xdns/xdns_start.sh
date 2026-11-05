@@ -6,6 +6,6 @@ sudo systemctl enable xdns_restart.service
 sudo systemctl enable xdns_firewall.service
 
 # start
-systemctl start xdns.service
-systemctl start xdns_firewall.service
-systemctl start xdns_restart.service
+systemctl restart xdns.service
+systemctl restart xdns_firewall.service
+systemctl restart xdns_restart.service

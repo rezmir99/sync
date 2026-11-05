@@ -2,7 +2,7 @@
   "log": {
     "access": "",
     "error": "",
-    "loglevel": "debug",
+    "loglevel": "warning",
     "dnsLog": false
   },
   "inbounds": [
@@ -47,7 +47,6 @@
                     "names": [
                       "x.typhone2.site"
                     ],
-                    "types": [16],
                     "edns0": 1232
                   }
                 ]
@@ -56,8 +55,8 @@
           ]
         },
         "kcpSettings": {
-          "mtu": 95,
-          "tti": 10
+          "mtu": 100,
+          "tti": 100
         },
         "method": "mkcp"
       }
