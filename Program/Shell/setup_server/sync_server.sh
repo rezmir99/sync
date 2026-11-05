@@ -1,4 +1,5 @@
 #!/bin/bash
+[ -s "$HOME/server_profile.sh" ] || { echo 'error: no server_profile'; exit 1; }
 . "$HOME/server_profile.sh"
 
 # delete broken symlink

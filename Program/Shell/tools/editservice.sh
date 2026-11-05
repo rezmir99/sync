@@ -12,7 +12,11 @@ OPTIND=1; while getopts :c opt; do
 done; shift "$((OPTIND-1))"
 
 servicepath="/etc/systemd/system/$1.service"
-[ -z "$servicepath" ] && { echo "no service specified"; exit 1; }
+servicename=$1
+[ -s "$servicepath" ] || { echo "no service specified/defined"; exit 1; }
 [ "$clean" = true ] && truncate -s 0 "$servicepath"
 
-nano "$servicepath"
+sudo nano "$servicepath"
+
+sudo systemctl daemon-reload
+sudo systemctl restart $servicename.service
