@@ -19,4 +19,5 @@ servicename=$1
 sudo nano "$servicepath"
 
 sudo systemctl daemon-reload
+sudo systemctl enable  $servicename.service
 sudo systemctl restart $servicename.service
