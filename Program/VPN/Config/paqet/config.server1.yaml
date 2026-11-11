@@ -15,10 +15,12 @@ log:
 
 # Port forwarding configuration (can be used alongside SOCKS5)
 forward:
-   - listen: "0.0.0.0:80"  # Local port to listen on
-     target: "127.0.0.1:80"    # Target to forward to (via server)
-     protocol: "tcp"           # Protocol (tcp/udp)
-
+   - listen: "0.0.0.0:80"
+     target: "127.0.0.1:80"
+     protocol: "tcp"
+   - listen: "127.0.0.1:38217"      # internal only, sslh will send port-22 traffic here
+     target: "127.0.0.1:80"
+     protocol: "tcp"
 # Network interface settings
 network:
   interface: "eth0"                          # CHANGE ME: Network interface (en0, eth0, wlan0, etc.)

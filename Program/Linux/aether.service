@@ -4,7 +4,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-ExecStart=/usr/local/bin/aether --config /etc/aether/aether.toml --bind 127.0.0.1:10820 --protocol masque --scan balanced --ip v4 --masque-sni www.chatgpt.com --h2  --tls-cert-compression brotli --tls-alps new  --tls-server-padding 6000 --enable-grease-sigalgs --enable-ech-grease --quick-reconnect --psiphon --psiphon-mode auto --psiphon-region US --psiphon-server-entries shipped-list
+ExecStart=/root/aether/aether --bind 127.0.0.1:10820 --protocol masque --scan balanced --ip v4 --masque-sni www.chatgpt.com --h2  --tls-cert-compression brotli --tls-alps new  --tls-server-padding 6000 --enable-grease-sigalgs --enable-ech-grease --quick-reconnect --psiphon --psiphon-mode auto --psiphon-region US --psiphon-server-entries shipped-list
 Restart=always
 RestartSec=5
 
