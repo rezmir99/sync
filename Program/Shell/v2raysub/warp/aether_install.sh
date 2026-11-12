@@ -1,7 +1,7 @@
 #!/bin/bash
 . "$HOME/server_profile.sh"
-bin_path="$PERM_GIT_PATH/Program/Linux"
 
+bin_path="$PERM_GIT_PATH/Program/Linux"
 bin_name="aether"
 bin_link='https://github.com/CluvexStudio/Aether/releases/latest/download/aether-linux-x86_64.tar.gz'
 bin_zip=$(basename -- "$bin_link")
