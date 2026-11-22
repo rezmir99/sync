@@ -14,6 +14,6 @@ done; shift "$((OPTIND-1))"
 
 sync_server
 
-[ -s "/root/xray-core/$config.json" ] && cp -f /root/xray-core/$config.json /root/xray-core/$config.json.bak
-cp -f "$bin_path/$config.json" /root/xray-core/$config.json
+[ -s "/root/xray-core/config.json" ] && cp -f /root/xray-core/config.json /root/xray-core/config.json.bak
+cp -f "$bin_path/$config.json" /root/xray-core/config.json
 systemctl restart xdns
