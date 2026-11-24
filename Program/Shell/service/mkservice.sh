@@ -1,5 +1,6 @@
 #!/bin/bash
 [ -s "$HOME/server_profile.sh" ] || { echo 'error: no server_profile'; exit 1; }
+set -x
 . "$HOME/server_profile.sh"
 
 service_name=$1
