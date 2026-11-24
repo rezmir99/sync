@@ -1,0 +1,15 @@
+[Unit]
+Description=Typhon Mobile Smart Assistant API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/typhone-smart-assistant
+ExecStart=/root/.nvm/versions/node/v26.13.1/bin/node /root/typhone-smart-assistant/server.js
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
